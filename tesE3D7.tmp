@@ -1,0 +1,96 @@
+[gd_scene load_steps=10 format=3 uid="uid://cwt3u8268iyrq"]
+
+[ext_resource type="PackedScene" uid="uid://dswiyvwlcf6f2" path="res://world.tscn" id="1_r7fsw"]
+[ext_resource type="PackedScene" uid="uid://cydxejijcnvuu" path="res://controllers/fps_controller.tscn" id="2_k1a4i"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hvmdu"]
+albedo_color = Color(0.619608, 0.560784, 0.52549, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_toqc2"]
+material = SubResource("StandardMaterial3D_hvmdu")
+size = Vector3(80, 0.2, 80)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kr1ei"]
+size = Vector3(80, 0.2, 80)
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_oqbph"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_76755"]
+albedo_color = Color(0.180392, 0.6, 0.568627, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xfkgp"]
+material = SubResource("StandardMaterial3D_76755")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fxwu0"]
+
+[node name="Node3D" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.107765, 0.101795, 0)
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("1_r7fsw")]
+
+[node name="floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24046, 0.199318, -0.241642)
+mesh = SubResource("BoxMesh_toqc2")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor/StaticBody3D"]
+shape = SubResource("BoxShape3D_kr1ei")
+
+[node name="wall" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.09278e-08, 0.25, -1.09278e-08, 0, -1.09278e-08, -0.25, -0.25, -1.09278e-08, 4.77671e-16, -29.9683, 13.1331, -13.0139)
+mesh = SubResource("BoxMesh_toqc2")
+surface_material_override/0 = SubResource("ORMMaterial3D_oqbph")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall/StaticBody3D"]
+shape = SubResource("BoxShape3D_kr1ei")
+
+[node name="wall2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.501578, 3.3851, -13.8324)
+mesh = SubResource("BoxMesh_toqc2")
+surface_material_override/0 = SubResource("ORMMaterial3D_oqbph")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="wall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall2/StaticBody3D"]
+shape = SubResource("BoxShape3D_kr1ei")
+
+[node name="wall3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, -1.09278e-08, -0.25, 0, 0.25, -1.09278e-08, 12.4871, 10.7699, -3.32562)
+mesh = SubResource("BoxMesh_toqc2")
+surface_material_override/0 = SubResource("ORMMaterial3D_oqbph")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="wall3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall3/StaticBody3D"]
+shape = SubResource("BoxShape3D_kr1ei")
+
+[node name="wall4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, -1.09278e-08, -0.25, 0, 0.25, -1.09278e-08, 8.60794, 4.44021, -5.18612)
+mesh = SubResource("BoxMesh_toqc2")
+surface_material_override/0 = SubResource("ORMMaterial3D_oqbph")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="wall4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall4/StaticBody3D"]
+shape = SubResource("BoxShape3D_kr1ei")
+
+[node name="box" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45804, 0.686777, -22.6426)
+mesh = SubResource("BoxMesh_xfkgp")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="box"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="box/StaticBody3D"]
+shape = SubResource("BoxShape3D_fxwu0")
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("2_k1a4i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.72665, 1.07741, -11.701)
