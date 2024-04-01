@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://cydxejijcnvuu"]
+[gd_scene load_steps=16 format=3 uid="uid://cydxejijcnvuu"]
 
 [ext_resource type="Script" path="res://controllers/scripts/fps_controller.gd" id="1_25682"]
 [ext_resource type="Script" path="res://controllers/scripts/reticle.gd" id="2_2oukd"]
+[ext_resource type="PackedScene" uid="uid://lrcvstoqsb8m" path="res://controllers/wapons/weapon.tscn" id="2_ueo15"]
 [ext_resource type="Script" path="res://scripts/DebugPanel.gd" id="3_g70h8"]
 [ext_resource type="Script" path="res://scripts/State_Machine.gd" id="5_kefg7"]
 [ext_resource type="Script" path="res://controllers/scripts/IdlePlayerState.gd" id="6_0l51m"]
@@ -183,6 +184,9 @@ mesh = SubResource("CapsuleMesh_5d6r0")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.44646)
 cull_mask = 1048573
 fov = 101.0
+
+[node name="WeaponRig" parent="CameraController/Camera3D" instance=ExtResource("2_ueo15")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.44646)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CameraController"]
 libraries = {
