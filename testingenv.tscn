@@ -29,6 +29,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.107765, 0.101795, 0)
 
 [node name="WorldEnvironment" parent="." instance=ExtResource("1_r7fsw")]
 
+[node name="FPS_Controller" parent="." instance=ExtResource("2_k1a4i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.54242, 0)
+
 [node name="floor" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24046, 0.199318, -0.241642)
 mesh = SubResource("BoxMesh_toqc2")
@@ -91,6 +94,3 @@ mesh = SubResource("BoxMesh_xfkgp")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="box/StaticBody3D"]
 shape = SubResource("BoxShape3D_fxwu0")
-
-[node name="CharacterBody3D" parent="." instance=ExtResource("2_k1a4i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.72665, 1.07741, -11.701)

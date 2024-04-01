@@ -4,5 +4,5 @@ extends Camera3D
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	global_transform = MAIN_CAMERA.global_transform

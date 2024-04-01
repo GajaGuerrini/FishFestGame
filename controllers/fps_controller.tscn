@@ -1,8 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://cydxejijcnvuu"]
+[gd_scene load_steps=15 format=3 uid="uid://cydxejijcnvuu"]
 
 [ext_resource type="Script" path="res://controllers/scripts/fps_controller.gd" id="1_25682"]
 [ext_resource type="Script" path="res://controllers/scripts/reticle.gd" id="2_2oukd"]
-[ext_resource type="PackedScene" uid="uid://lrcvstoqsb8m" path="res://crowbar.tscn" id="2_5w3jv"]
 [ext_resource type="Script" path="res://scripts/DebugPanel.gd" id="3_g70h8"]
 [ext_resource type="Script" path="res://scripts/State_Machine.gd" id="5_kefg7"]
 [ext_resource type="Script" path="res://controllers/scripts/IdlePlayerState.gd" id="6_0l51m"]
@@ -167,7 +166,7 @@ _data = {
 "Walking": SubResource("Animation_ol55s")
 }
 
-[node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("CAMERA_CONTROLLER", "ANIMATIONPLAYER")]
+[node name="FPS_Controller" type="CharacterBody3D" node_paths=PackedStringArray("CAMERA_CONTROLLER", "ANIMATIONPLAYER")]
 script = ExtResource("1_25682")
 CAMERA_CONTROLLER = NodePath("CameraController/Camera3D")
 ANIMATIONPLAYER = NodePath("CameraController/AnimationPlayer")
@@ -176,19 +175,14 @@ ANIMATIONPLAYER = NodePath("CameraController/AnimationPlayer")
 shape = SubResource("CapsuleShape3D_hmu05")
 
 [node name="PlaceHolderMEsh" type="MeshInstance3D" parent="CollisionShape3D"]
-visible = false
 mesh = SubResource("CapsuleMesh_5d6r0")
 
 [node name="CameraController" type="Node3D" parent="."]
 
 [node name="Camera3D" type="Camera3D" parent="CameraController"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.44646)
+cull_mask = 1048573
 fov = 101.0
-
-[node name="WeaponRig" type="Node3D" parent="CameraController/Camera3D"]
-
-[node name="Node3D" parent="CameraController/Camera3D/WeaponRig" instance=ExtResource("2_5w3jv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.33)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CameraController"]
 libraries = {

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Weapons" load_steps=3 format=3 uid="uid://bhifean1y4v2x"]
+
+[ext_resource type="Script" path="res://controllers/wapons/Weapons.gd" id="1_1xt3g"]
+[ext_resource type="ArrayMesh" uid="uid://bakorb23hdrae" path="res://Assets/Fish/FishV3_out/FishV3Mesh.res" id="1_mubdf"]
+
+[resource]
+script = ExtResource("1_1xt3g")
+name = &""
+position = Vector3(0.13, -0.165, -0.22)
+rotation = Vector3(-89, 172, 90)
+mesh = ExtResource("1_mubdf")
+damage_ammount = 10.0
