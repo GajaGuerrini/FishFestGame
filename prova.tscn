@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://lncv02edlhxv"]
+
+[ext_resource type="PackedScene" uid="uid://cxtvsmqfswu5a" path="res://Assets/Fish/FishV1_out/FishV1.gltf" id="1_mpgf5"]
+[ext_resource type="ArrayMesh" uid="uid://b7tu76y3obeni" path="res://Assets/Fish/FishV1_out/fish1.res" id="2_cqcmq"]
+[ext_resource type="PackedScene" uid="uid://dmkcql6cg250r" path="res://controllers/wapons/Crowbar/FishV3_out/FishV3.gltf" id="3_tm57s"]
+[ext_resource type="ArrayMesh" uid="uid://b3tppb30nwkew" path="res://controllers/wapons/Crowbar/FishV3_out/FishV3Mesh.res" id="4_ixqet"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Root Scene" parent="." instance=ExtResource("1_mpgf5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.132747, 0.180649, -3.21715)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Root Scene"]
+mesh = ExtResource("2_cqcmq")
+
+[node name="Root Scene2" parent="." instance=ExtResource("3_tm57s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.132617, 0, 0.732137)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Root Scene2"]
+mesh = ExtResource("4_ixqet")

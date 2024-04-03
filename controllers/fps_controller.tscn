@@ -2,18 +2,25 @@
 
 [ext_resource type="Script" path="res://controllers/scripts/fps_controller.gd" id="1_25682"]
 [ext_resource type="Script" path="res://controllers/scripts/reticle.gd" id="2_2oukd"]
-[ext_resource type="PackedScene" uid="uid://lrcvstoqsb8m" path="res://controllers/wapons/weapon.tscn" id="2_ueo15"]
-[ext_resource type="Script" path="res://scripts/DebugPanel.gd" id="3_g70h8"]
-[ext_resource type="Script" path="res://scripts/State_Machine.gd" id="5_kefg7"]
+[ext_resource type="Script" path="res://controllers/BulletSpawner.gd" id="2_67jw2"]
+[ext_resource type="Script" path="res://controllers/scripts/scripts/DebugPanel.gd" id="4_70iqa"]
+[ext_resource type="Script" path="res://controllers/scripts/scripts/State_Machine.gd" id="5_8i03q"]
 [ext_resource type="Script" path="res://controllers/scripts/IdlePlayerState.gd" id="6_0l51m"]
 [ext_resource type="Script" path="res://controllers/scripts/WalkingPlayerState.gd" id="6_lx7h7"]
 [ext_resource type="Script" path="res://controllers/scripts/SprintingPlayerState.gd" id="7_ln0u6"]
-[ext_resource type="Script" path="res://controllers/JumpingPlayerState.gd" id="8_25p80"]
-[ext_resource type="Script" path="res://controllers/WeaponSubViewport.gd" id="10_ln6kx"]
+[ext_resource type="Script" path="res://controllers/scripts/JumpingPlayerState.gd" id="8_672pm"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hmu05"]
+radius = 0.25
+height = 1.0
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_5d6r0"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dj4ni"]
+albedo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_oxo3f"]
+material = SubResource("StandardMaterial3D_dj4ni")
+radius = 0.25
+height = 1.0
 
 [sub_resource type="Animation" id="Animation_kfc02"]
 length = 0.001
@@ -53,7 +60,7 @@ tracks/2/keys = {
 tracks/3/type = "bezier"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Camera3D:position:x")
+tracks/3/path = NodePath("MainCamera:position:x")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -64,7 +71,7 @@ tracks/3/keys = {
 tracks/4/type = "bezier"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Camera3D:position:y")
+tracks/4/path = NodePath("MainCamera:position:y")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -75,7 +82,7 @@ tracks/4/keys = {
 tracks/5/type = "bezier"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Camera3D:position:z")
+tracks/5/path = NodePath("MainCamera:position:z")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -92,7 +99,7 @@ step = 0.2
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Camera3D:position:x")
+tracks/0/path = NodePath("MainCamera:position:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -103,7 +110,7 @@ tracks/0/keys = {
 tracks/1/type = "bezier"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Camera3D:position:y")
+tracks/1/path = NodePath("MainCamera:position:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -114,7 +121,7 @@ tracks/1/keys = {
 tracks/2/type = "bezier"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Camera3D:position:z")
+tracks/2/path = NodePath("MainCamera:position:z")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -170,29 +177,36 @@ _data = {
 
 [node name="FPS_Controller" type="CharacterBody3D" node_paths=PackedStringArray("CAMERA_CONTROLLER", "ANIMATIONPLAYER")]
 script = ExtResource("1_25682")
-CAMERA_CONTROLLER = NodePath("CameraController/Camera3D")
-ANIMATIONPLAYER = NodePath("CameraController/AnimationPlayer")
+CAMERA_CONTROLLER = NodePath("CameraController/MainCamera")
+ANIMATIONPLAYER = NodePath("CameraController/cameraAnimation")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_hmu05")
 
-[node name="PlaceHolderMEsh" type="MeshInstance3D" parent="CollisionShape3D"]
-mesh = SubResource("CapsuleMesh_5d6r0")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+mesh = SubResource("CapsuleMesh_oxo3f")
 
 [node name="CameraController" type="Node3D" parent="."]
 
-[node name="Camera3D" type="Camera3D" parent="CameraController"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.44646)
-cull_mask = 1048573
-fov = 101.0
-
-[node name="WeaponRig" parent="CameraController/Camera3D" instance=ExtResource("2_ueo15")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.44646)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CameraController"]
+[node name="cameraAnimation" type="AnimationPlayer" parent="CameraController"]
 libraries = {
 "": SubResource("AnimationLibrary_qlt0c")
 }
+
+[node name="MainCamera" type="Camera3D" parent="CameraController"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.44646)
+fov = 90.0
+
+[node name="BulletSpawner" type="Node3D" parent="CameraController/MainCamera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.51)
+script = ExtResource("2_67jw2")
+
+[node name="Timer" type="Timer" parent="CameraController/MainCamera/BulletSpawner"]
+wait_time = 5.0
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="CameraController/MainCamera/BulletSpawner"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.95646)
 
 [node name="UserInterface" type="Control" parent="."]
 layout_mode = 3
@@ -242,7 +256,7 @@ offset_left = 10.37
 offset_top = 10.0
 offset_right = 50.37
 offset_bottom = 50.0
-script = ExtResource("3_g70h8")
+script = ExtResource("4_70iqa")
 
 [node name="MarginContainer" type="MarginContainer" parent="UserInterface/DebugPannel"]
 layout_mode = 2
@@ -252,7 +266,7 @@ unique_name_in_owner = true
 layout_mode = 2
 
 [node name="PlayerStateMachine" type="Node" parent="." node_paths=PackedStringArray("CURRENT_STATE")]
-script = ExtResource("5_kefg7")
+script = ExtResource("5_8i03q")
 CURRENT_STATE = NodePath("IdlePlayerState")
 
 [node name="IdlePlayerState" type="Node" parent="PlayerStateMachine"]
@@ -265,16 +279,6 @@ script = ExtResource("6_lx7h7")
 script = ExtResource("7_ln0u6")
 
 [node name="JumpingPlayerState" type="Node" parent="PlayerStateMachine"]
-script = ExtResource("8_25p80")
+script = ExtResource("8_672pm")
 
-[node name="WeaponViewport" type="SubViewportContainer" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="SubViewport" type="SubViewport" parent="WeaponViewport"]
-transparent_bg = true
-handle_input_locally = false
-script = ExtResource("10_ln6kx")
+[connection signal="timeout" from="CameraController/MainCamera/BulletSpawner/Timer" to="CameraController/MainCamera/BulletSpawner" method="_on_timer_timeout"]

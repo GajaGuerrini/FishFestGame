@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cv0ai6dx4xrfe"]
+
+[ext_resource type="ArrayMesh" uid="uid://b7tu76y3obeni" path="res://Assets/Fish/FishV1_out/fish1.res" id="1_eiv85"]
+
+[node name="fish1" type="Node3D"]
+
+[node name="Fish1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.113854, -1.19209e-07, 0.0387309)
+mesh = ExtResource("1_eiv85")

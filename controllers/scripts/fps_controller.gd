@@ -2,10 +2,16 @@ class_name Player
 extends CharacterBody3D
 
 @export var MOUSE_SENSITIVITY : float = 0.5
-@export var TILT_LOWER_LIMIT := deg_to_rad(-90.0)
-@export var TILT_UPPER_LIMIT := deg_to_rad(90.0)
+@export var TILT_LOWER_LIMIT := deg_to_rad(-75.0)
+@export var TILT_UPPER_LIMIT := deg_to_rad(75.0)
 @export var CAMERA_CONTROLLER : Camera3D
 @export var ANIMATIONPLAYER : AnimationPlayer
+
+#standard bullet
+@export var BULLET_SPEED : int = 25
+@onready var bullet_scene = preload("res://standard_bullet.tscn")
+@onready var bullet_spawn_point = $CameraController/MainCamera/BulletSpawner
+
 # @export var CROUCH_SHAPECAST : Node3D
 
 var _mouse_input : bool = false
@@ -26,6 +32,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		_tilt_input = -event.relative.y * MOUSE_SENSITIVITY
 
 func _input(event):
+	if event.is_action_pressed("fire"):
+		spawn_bullet()
+		#$CameraController/MainCamera/BulletSpawner/AudioStreamPlayer3D.play()
 	if event.is_action_pressed("exit"):
 		get_tree().quit()
 
@@ -56,8 +65,8 @@ func _ready():
 func _physics_process(delta):
 	
 	Global.debug.add_property("Velocity","%.2f" % velocity.length(), 2)
-	
 	update_camera(delta)
+
 	
 func update_gravity(delta) -> void:
 	velocity.y -= gravity * delta
@@ -77,5 +86,8 @@ func update_input(speed: float, acceleration: float, deceleration: float) -> voi
 func update_velocity() -> void:
 	move_and_slide()
 
-
-
+func spawn_bullet():
+	var projectile = bullet_scene.instantiate()
+	add_sibling(projectile)
+	projectile.transform = bullet_spawn_point.global_transform
+	projectile.linear_velocity = bullet_spawn_point.global_transform.basis.z * -1 * BULLET_SPEED
