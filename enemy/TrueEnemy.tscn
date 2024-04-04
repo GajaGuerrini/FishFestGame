@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://deoshw0p4f1yy"]
+
+[ext_resource type="Script" path="res://enemy/the_true_enemy.gd" id="1_qqdd7"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1w8uh"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u270r"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_sny6t"]
+radius = 10.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_2c0we"]
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+script = ExtResource("1_qqdd7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_1w8uh")
+
+[node name="BulletHitBox" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BulletHitBox"]
+shape = SubResource("CapsuleShape3D_u270r")
+
+[node name="DetectionArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionArea"]
+shape = SubResource("SphereShape3D_sny6t")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_2c0we")
+
+[connection signal="body_entered" from="BulletHitBox" to="." method="_on_bullet_hit_box_body_entered"]
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
