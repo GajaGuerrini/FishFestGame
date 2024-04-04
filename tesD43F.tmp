@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://cwt3u8268iyrq"]
+[gd_scene load_steps=12 format=3 uid="uid://cwt3u8268iyrq"]
 
 [ext_resource type="PackedScene" uid="uid://dswiyvwlcf6f2" path="res://world.tscn" id="1_r7fsw"]
 [ext_resource type="PackedScene" uid="uid://cydxejijcnvuu" path="res://controllers/fps_controller.tscn" id="2_k1a4i"]
+[ext_resource type="PackedScene" uid="uid://b2i4opp0ugj6c" path="res://enemy.tscn" id="3_r17ob"]
 [ext_resource type="PackedScene" uid="uid://bpmbxc0yvei0s" path="res://the_true_enemy.tscn" id="4_x3olg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hvmdu"]
@@ -100,6 +101,10 @@ collision_mask = 15
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="box/StaticBody3D"]
 shape = SubResource("BoxShape3D_fxwu0")
+
+[node name="enemy" parent="." instance=ExtResource("3_r17ob")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.59921, 0)
+ENEMY_SPEED = 3.0
 
 [node name="TheTrueEnemy" parent="." instance=ExtResource("4_x3olg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 2, 30)

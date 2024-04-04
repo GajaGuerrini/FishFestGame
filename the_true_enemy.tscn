@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://bpmbxc0yvei0s"]
+
+[ext_resource type="Script" path="res://the_true_enemy.gd" id="1_curbc"]
+[ext_resource type="Script" path="res://controllers/scripts/scripts/state.gd" id="2_pubtb"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8ekk4"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_megye"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_njkan"]
+radius = 5.0
+
+[node name="TheTrueEnemy" type="CharacterBody3D"]
+script = ExtResource("1_curbc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_8ekk4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_megye")
+
+[node name="DetectionArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionArea"]
+shape = SubResource("SphereShape3D_njkan")
+
+[node name="EnemyState" type="Node" parent="."]
+script = ExtResource("2_pubtb")
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

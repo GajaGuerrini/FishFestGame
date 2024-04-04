@@ -185,6 +185,7 @@ ANIMATIONPLAYER = NodePath("CameraController/cameraAnimation")
 shape = SubResource("CapsuleShape3D_hmu05")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+visible = false
 mesh = SubResource("CapsuleMesh_oxo3f")
 
 [node name="CameraController" type="Node3D" parent="."]
