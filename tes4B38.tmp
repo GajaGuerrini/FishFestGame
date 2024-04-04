@@ -103,3 +103,4 @@ shape = SubResource("BoxShape3D_fxwu0")
 
 [node name="TheTrueEnemy" parent="." instance=ExtResource("4_x3olg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 2, 30)
+ENEMY_SPEED = 3.0

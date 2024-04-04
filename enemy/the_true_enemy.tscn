@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://78yc7t80afvd"]
+[gd_scene load_steps=5 format=3 uid="uid://78yc7t80afvd"]
 
-[ext_resource type="Script" path="res://the_true_enemy.gd" id="1_curbc"]
-[ext_resource type="Script" path="res://controllers/scripts/scripts/state.gd" id="2_pubtb"]
+[ext_resource type="Script" path="res://enemy/the_true_enemy.gd" id="1_curbc"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8ekk4"]
 
@@ -23,9 +22,6 @@ mesh = SubResource("CapsuleMesh_megye")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionArea"]
 shape = SubResource("SphereShape3D_njkan")
-
-[node name="EnemyState" type="Node" parent="."]
-script = ExtResource("2_pubtb")
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

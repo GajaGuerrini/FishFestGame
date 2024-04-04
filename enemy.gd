@@ -12,11 +12,11 @@ func _process(delta):
 	pass
 
 
-func _on_area_3d_body_entered(body):
-	if body.is_in_group("projectile"):
-		body.queue_free()
-		queue_free()
-		print("Hit!")
+#func _on_area_3d_body_entered(body):
+	#if body.is_in_group("projectile"):
+		#body.queue_free()
+		#queue_free()
+		#print("Hit!")
 
 
 func _on_detection_area_body_entered(body):

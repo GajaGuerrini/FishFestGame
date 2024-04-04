@@ -1,3 +1,5 @@
+class_name Enemy
+
 extends CharacterBody3D
 
 @export_range(3.0, 10.0) var ENEMY_SPEED : float = 3.0 # pocasen
@@ -13,9 +15,11 @@ func _ready():
 func _process(delta):
 	pass
 
-
 func _physics_process(delta):
-	pass
+	var direction = (transform.basis *(Global.player.position- position)).normalized()
+	velocity = direction * ENEMY_SPEED
+	
+	move_and_slide()
 
 
 #func _on_area_3d_body_entered(body):

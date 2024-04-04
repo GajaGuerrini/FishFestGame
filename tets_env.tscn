@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bq157fj42m03w"]
+
+[node name="TetsEnv" type="Node3D"]
+
+[node name="Wall" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 0)
+size = Vector3(2, 2.5, 50)
+
+[node name="Wall2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 0)
+size = Vector3(2, 2.5, 50)
+
+[node name="wall" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -25)
+size = Vector3(50, 2.5, 2)
+
+[node name="wall2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 25)
+size = Vector3(50, 2.5, 2)
