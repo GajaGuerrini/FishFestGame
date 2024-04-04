@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://cydxejijcnvuu"]
+[gd_scene load_steps=18 format=3 uid="uid://cydxejijcnvuu"]
 
 [ext_resource type="Script" path="res://controllers/scripts/fps_controller.gd" id="1_25682"]
 [ext_resource type="Script" path="res://controllers/scripts/reticle.gd" id="2_2oukd"]
 [ext_resource type="Script" path="res://controllers/BulletSpawner.gd" id="2_67jw2"]
+[ext_resource type="AudioStream" uid="uid://poljxgrd5etp" path="res://Assets/Audio/Fish_Shooter_SFX_Water_pistol.wav" id="3_ugpig"]
 [ext_resource type="Script" path="res://controllers/scripts/scripts/DebugPanel.gd" id="4_70iqa"]
 [ext_resource type="Script" path="res://controllers/scripts/scripts/State_Machine.gd" id="5_8i03q"]
 [ext_resource type="Script" path="res://controllers/scripts/IdlePlayerState.gd" id="6_0l51m"]
@@ -175,7 +176,7 @@ _data = {
 "Walking": SubResource("Animation_ol55s")
 }
 
-[node name="FPS_Controller" type="CharacterBody3D" node_paths=PackedStringArray("CAMERA_CONTROLLER", "ANIMATIONPLAYER")]
+[node name="FPS_Controller" type="CharacterBody3D" node_paths=PackedStringArray("CAMERA_CONTROLLER", "ANIMATIONPLAYER") groups=["player"]]
 script = ExtResource("1_25682")
 CAMERA_CONTROLLER = NodePath("CameraController/MainCamera")
 ANIMATIONPLAYER = NodePath("CameraController/cameraAnimation")
@@ -207,6 +208,8 @@ wait_time = 5.0
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="CameraController/MainCamera/BulletSpawner"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.95646)
+stream = ExtResource("3_ugpig")
+max_polyphony = 30
 
 [node name="UserInterface" type="Control" parent="."]
 layout_mode = 3

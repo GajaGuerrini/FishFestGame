@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://b2i4opp0ugj6c"]
+[gd_scene load_steps=8 format=3 uid="uid://b2i4opp0ugj6c"]
 
 [ext_resource type="Script" path="res://enemy.gd" id="1_lyidp"]
 
@@ -9,10 +9,18 @@ albedo_color = Color(1, 0, 0, 1)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b8kb5"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_t7o5f"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_eqbny"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_shxxc"]
+transparency = 1
+albedo_color = Color(0, 1, 0, 1)
+
 [node name="enemy" type="Node3D"]
 script = ExtResource("1_lyidp")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="enemymesh" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_pmtrj")
 surface_material_override/0 = SubResource("StandardMaterial3D_nh83w")
 
@@ -24,4 +32,17 @@ collision_mask = 15
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("CapsuleShape3D_b8kb5")
 
+[node name="DetectionArea" type="Area3D" parent="."]
+
+[node name="DetectionCollision" type="CollisionShape3D" parent="DetectionArea"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+shape = SubResource("SphereShape3D_t7o5f")
+
+[node name="DetectionShape" type="MeshInstance3D" parent="DetectionArea"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+mesh = SubResource("SphereMesh_eqbny")
+surface_material_override/0 = SubResource("StandardMaterial3D_shxxc")
+
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

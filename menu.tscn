@@ -1,0 +1,77 @@
+[gd_scene load_steps=4 format=3 uid="uid://hayg6xs3p43g"]
+
+[ext_resource type="Script" path="res://menu.gd" id="1_pfga4"]
+[ext_resource type="Texture2D" uid="uid://c6nm7ybxxoxgl" path="res://Assets/Fish/fishbg.png" id="2_56mf1"]
+[ext_resource type="Texture2D" uid="uid://dqho1vvvh7buq" path="res://Assets/Fish/smallfish.png" id="2_xwy7s"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pfga4")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -28.0
+offset_top = -260.0
+offset_right = 2382.0
+offset_bottom = 1900.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_56mf1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -97.0
+offset_top = -70.0
+offset_right = 97.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Start (to test)"
+
+[node name="OptionsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Options (WIP)"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="Credits" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Credits"
+
+[node name="GameJamName" type="Label" parent="."]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 542.0
+offset_right = 401.0
+offset_bottom = 664.0
+theme_override_colors/font_color = Color(0, 0.443137, 1, 1)
+text = "The game was made during:"
+
+[node name="FishFest" type="TextureRect" parent="GameJamName"]
+layout_mode = 2
+offset_left = 5.0
+offset_top = 29.0
+offset_right = 611.0
+offset_bottom = 291.0
+grow_vertical = 0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_xwy7s")
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_credits_pressed"]

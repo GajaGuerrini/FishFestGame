@@ -34,7 +34,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func _input(event):
 	if event.is_action_pressed("fire"):
 		spawn_bullet()
-		#$CameraController/MainCamera/BulletSpawner/AudioStreamPlayer3D.play()
+		$CameraController/MainCamera/BulletSpawner/AudioStreamPlayer3D.play()
 	if event.is_action_pressed("exit"):
 		get_tree().quit()
 

@@ -16,3 +16,13 @@ func _on_area_3d_body_entered(body):
 		body.queue_free()
 		queue_free()
 		print("Hit!")
+
+
+func _on_detection_area_body_entered(body):
+	if body.is_in_group("player"):
+		print("Player has been detected", body.name)
+
+
+func _on_detection_area_body_exited(body):
+	print("Player has been lost")
+	pass # Replace with function body.
