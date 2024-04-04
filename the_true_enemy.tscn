@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bpmbxc0yvei0s"]
+[gd_scene load_steps=6 format=3 uid="uid://78yc7t80afvd"]
 
 [ext_resource type="Script" path="res://the_true_enemy.gd" id="1_curbc"]
 [ext_resource type="Script" path="res://controllers/scripts/scripts/state.gd" id="2_pubtb"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dswiyvwlcf6f2" path="res://world.tscn" id="1_r7fsw"]
 [ext_resource type="PackedScene" uid="uid://cydxejijcnvuu" path="res://controllers/fps_controller.tscn" id="2_k1a4i"]
-[ext_resource type="PackedScene" uid="uid://bpmbxc0yvei0s" path="res://the_true_enemy.tscn" id="4_x3olg"]
+[ext_resource type="PackedScene" uid="uid://78yc7t80afvd" path="res://the_true_enemy.tscn" id="4_x3olg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hvmdu"]
 albedo_color = Color(0.619608, 0.560784, 0.52549, 1)

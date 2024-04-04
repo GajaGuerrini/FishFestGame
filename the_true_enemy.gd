@@ -31,5 +31,5 @@ func _on_detection_area_body_entered(body):
 
 
 func _on_detection_area_body_exited(body):
-	print("Player has been lost")
-	pass # Replace with function body.	
+	if body.is_in_group("player"):
+		print("Player has been lost")
