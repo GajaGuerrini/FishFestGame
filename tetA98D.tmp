@@ -38,4 +38,3 @@ transform = Transform3D(-0.592198, 0.408824, 0.69438, 0.563238, 0.826272, -0.006
 
 [node name="HittingEnemy" parent="." instance=ExtResource("4_03eiq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.2691, -6.42349, -3.76172)
-CURRENT_HP = 5
