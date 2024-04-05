@@ -6,7 +6,7 @@ extends CharacterBody3D
 @export var TILT_UPPER_LIMIT := deg_to_rad(75.0)
 @export var CAMERA_CONTROLLER : Camera3D
 @export var ANIMATIONPLAYER : AnimationPlayer
-
+@export var CURRENT_HP : int = 50
 #standard bullet
 @export var BULLET_SPEED : int = 25
 @onready var bullet_scene = preload("res://standard_bullet.tscn")
@@ -36,7 +36,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func _input(event):
 	if event.is_action_pressed("fire"):
 		spawn_bullet()
-		$CameraController/MainCamera/BulletSpawner/AudioStreamPlayer3D.play()
+		%AudioBulletSFX.play()
 	if event.is_action_pressed("exit"):
 		get_tree().quit()
 
@@ -88,11 +88,17 @@ func update_input(speed: float, acceleration: float, deceleration: float) -> voi
 func update_velocity() -> void:
 	move_and_slide()
 
-func _on_bullet_despawn_timeout():
-	queue_free()
-	
 func spawn_bullet():
 	var projectile = bullet_scene.instantiate()
 	add_sibling(projectile)
 	projectile.transform = bullet_spawn_point.global_transform
 	projectile.linear_velocity = bullet_spawn_point.global_transform.basis.z * -1 * BULLET_SPEED
+
+func _on_area_detecting_hits_body_entered(body):
+	if body.is_in_group("enemy_projectile"):
+		CURRENT_HP -= 1
+		body.queue_free()
+		print("bullet hit! remaining HP: ",CURRENT_HP)
+		$AreaDetectingHits/AudioPlayerisHitt.play()
+	if CURRENT_HP == 0:
+		print("No HP")

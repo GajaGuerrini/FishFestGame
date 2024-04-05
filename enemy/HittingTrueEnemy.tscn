@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bmwveumwt0ifa"]
+[gd_scene load_steps=10 format=3 uid="uid://bmwveumwt0ifa"]
 
 [ext_resource type="Script" path="res://enemy/HittingTrueEnemy.gd" id="1_g3l73"]
 [ext_resource type="Script" path="res://enemy/BulletSpawner.gd" id="2_fqmsd"]
+[ext_resource type="AudioStream" uid="uid://04mtsmc1tr1b" path="res://Assets/Audio/Fish Shooter (SFX) Enemy damaged.wav" id="3_wgbpy"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_s0ojb"]
 
@@ -22,6 +23,7 @@ size = Vector3(0.5, 0.5, 0.8)
 
 [node name="HittingEnemy" type="CharacterBody3D"]
 script = ExtResource("1_g3l73")
+CURRENT_HP = 10
 
 [node name="EnemyBulletSpawner" type="Node3D" parent="."]
 unique_name_in_owner = true
@@ -54,6 +56,11 @@ metadata/_edit_group_ = true
 
 [node name="nosekmesh" type="MeshInstance3D" parent="nosek"]
 mesh = SubResource("BoxMesh_0mvpa")
+
+[node name="AudioEnemyDmg" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_wgbpy")
+max_polyphony = 30
+area_mask = 2
 
 [connection signal="timeout" from="EnemyBulletSpawner/FireTimer" to="EnemyBulletSpawner" method="_on_fire_timer_timeout"]
 [connection signal="body_entered" from="BulletHitBox" to="." method="_on_bullet_hit_box_body_entered"]

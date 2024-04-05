@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ccmt5j8t4yxem"
+path="res://.godot/imported/Fish Shooter (SFX) Character damaged.wav-bd46e79680eff3151d256df2c408f43c.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/Fish Shooter (SFX) Character damaged.wav"
+dest_files=["res://.godot/imported/Fish Shooter (SFX) Character damaged.wav-bd46e79680eff3151d256df2c408f43c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

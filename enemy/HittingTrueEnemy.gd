@@ -6,8 +6,6 @@ extends CharacterBody3D
 @export_range(3.0, 10.0) var ENEMY_SPEED : float = 3.0 # pocasen
 @export var HOVER_DISTANCE:float = 5
 
-signal PlayerDetected	
-signal PlayerLost
 var direction : Vector3
 var Enemy_hight = range(0.2, )
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity") 
@@ -55,14 +53,13 @@ func _on_area_3d_body_entered(body):
 func _on_detection_area_body_entered(body):
 	if body.is_in_group("player"):
 		print("Player has been detected", body.name)
-		emit_signal("PlayerDetected")
-		velocity = Vector3(0.0, 0.0, 0.0)
+
 
 
 func _on_detection_area_body_exited(body):
 	if body.is_in_group("player"):
 		print("Player has been lost")
-		velocity = direction * ENEMY_SPEED
+	
 
 
 func _on_bullet_hit_box_body_entered(body):
@@ -70,5 +67,6 @@ func _on_bullet_hit_box_body_entered(body):
 		CURRENT_HP -= 1
 		body.queue_free()
 		print("bullet hit! remaining HP: ",CURRENT_HP)
+		$AudioEnemyDmg.play()
 		if CURRENT_HP == 0:
 			queue_free()
