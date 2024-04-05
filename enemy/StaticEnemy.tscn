@@ -1,36 +1,23 @@
-[gd_scene load_steps=8 format=3 uid="uid://deoshw0p4f1yy"]
+[gd_scene load_steps=6 format=3 uid="uid://diy1wld2fe42o"]
 
-[ext_resource type="Script" path="res://enemy/the_true_enemy.gd" id="1_qqdd7"]
+[ext_resource type="Script" path="res://enemy/StaticEnemy.gd" id="1_ut4fr"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1w8uh"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_1uyag"]
-size = Vector3(0.5, 0.5, 0.8)
-
-[sub_resource type="BoxMesh" id="BoxMesh_n6uef"]
-size = Vector3(0.5, 0.5, 0.8)
-
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u270r"]
 radius = 1.0
-height = 2.2
+height = 2.1
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_sny6t"]
 radius = 10.0
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_2c0we"]
 
-[node name="TrueEnemy" type="CharacterBody3D"]
-script = ExtResource("1_qqdd7")
+[node name="StaticEnemy" type="CharacterBody3D"]
+script = ExtResource("1_ut4fr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_1w8uh")
-
-[node name="nosek" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, -0.5)
-shape = SubResource("BoxShape3D_1uyag")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="nosek"]
-mesh = SubResource("BoxMesh_n6uef")
 
 [node name="BulletHitBox" type="Area3D" parent="."]
 

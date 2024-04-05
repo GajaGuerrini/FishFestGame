@@ -7,7 +7,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 
@@ -24,4 +24,4 @@ func _on_quit_button_pressed():
 
 
 func _on_credits_pressed():
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://Credits.tscn")

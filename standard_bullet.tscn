@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://37plkqcukxx6"]
+[gd_scene load_steps=5 format=3 uid="uid://37plkqcukxx6"]
+
+[ext_resource type="Script" path="res://standard_bullet.gd" id="1_ue4lf"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_2eupv"]
 
@@ -16,6 +18,7 @@ material = SubResource("StandardMaterial3D_lrq3b")
 [node name="StandardBullet" type="RigidBody3D" groups=["projectile"]]
 collision_layer = 13
 collision_mask = 12
+script = ExtResource("1_ue4lf")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -25,3 +28,9 @@ shape = SubResource("SphereShape3D_2eupv")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 mesh = SubResource("SphereMesh_8b1ns")
+
+[node name="DespawnBullet" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="DespawnBullet" to="." method="_on_despawn_bullet_timeout"]

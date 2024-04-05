@@ -21,6 +21,8 @@ var _mouse_rotation : Vector3
 var _player_rotation : Vector3
 var _camera_rotation : Vector3
 
+signal NoBullet
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 # gravitacijo se lahko spremeni po potrebi
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity") 
@@ -86,6 +88,9 @@ func update_input(speed: float, acceleration: float, deceleration: float) -> voi
 func update_velocity() -> void:
 	move_and_slide()
 
+func _on_bullet_despawn_timeout():
+	queue_free()
+	
 func spawn_bullet():
 	var projectile = bullet_scene.instantiate()
 	add_sibling(projectile)

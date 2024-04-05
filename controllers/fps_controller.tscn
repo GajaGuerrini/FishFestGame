@@ -1,8 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://cydxejijcnvuu"]
+[gd_scene load_steps=17 format=3 uid="uid://cydxejijcnvuu"]
 
 [ext_resource type="Script" path="res://controllers/scripts/fps_controller.gd" id="1_25682"]
 [ext_resource type="Script" path="res://controllers/scripts/reticle.gd" id="2_2oukd"]
-[ext_resource type="Script" path="res://controllers/BulletSpawner.gd" id="2_67jw2"]
 [ext_resource type="AudioStream" uid="uid://poljxgrd5etp" path="res://Assets/Audio/Fish_Shooter_SFX_Water_pistol.wav" id="3_ugpig"]
 [ext_resource type="Script" path="res://controllers/scripts/scripts/DebugPanel.gd" id="4_70iqa"]
 [ext_resource type="Script" path="res://controllers/scripts/scripts/State_Machine.gd" id="5_8i03q"]
@@ -182,10 +181,11 @@ CAMERA_CONTROLLER = NodePath("CameraController/MainCamera")
 ANIMATIONPLAYER = NodePath("CameraController/cameraAnimation")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["player"]]
+transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_hmu05")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
-visible = false
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 mesh = SubResource("CapsuleMesh_oxo3f")
 
 [node name="CameraController" type="Node3D" parent="."]
@@ -200,11 +200,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.44646)
 fov = 90.0
 
 [node name="BulletSpawner" type="Node3D" parent="CameraController/MainCamera"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.51)
-script = ExtResource("2_67jw2")
-
-[node name="Timer" type="Timer" parent="CameraController/MainCamera/BulletSpawner"]
-wait_time = 5.0
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="CameraController/MainCamera/BulletSpawner"]
 unique_name_in_owner = true
@@ -284,5 +279,3 @@ script = ExtResource("7_ln0u6")
 
 [node name="JumpingPlayerState" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("8_672pm")
-
-[connection signal="timeout" from="CameraController/MainCamera/BulletSpawner/Timer" to="CameraController/MainCamera/BulletSpawner" method="_on_timer_timeout"]

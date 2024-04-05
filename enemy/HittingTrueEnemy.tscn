@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://bmwveumwt0ifa"]
+
+[ext_resource type="Script" path="res://enemy/HittingTrueEnemy.gd" id="1_g3l73"]
+[ext_resource type="Script" path="res://enemy/BulletSpawner.gd" id="2_fqmsd"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_s0ojb"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_2c0we"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u270r"]
+radius = 1.0
+height = 2.2
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_sny6t"]
+radius = 10.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hbk4p"]
+size = Vector3(0.5, 0.5, 0.8)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0mvpa"]
+size = Vector3(0.5, 0.5, 0.8)
+
+[node name="HittingEnemy" type="CharacterBody3D"]
+script = ExtResource("1_g3l73")
+
+[node name="EnemyBulletSpawner" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.588426, -1.06349)
+script = ExtResource("2_fqmsd")
+
+[node name="FireTimer" type="Timer" parent="EnemyBulletSpawner"]
+autostart = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_s0ojb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_2c0we")
+
+[node name="BulletHitBox" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BulletHitBox"]
+shape = SubResource("CapsuleShape3D_u270r")
+
+[node name="DetectionArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionArea"]
+shape = SubResource("SphereShape3D_sny6t")
+
+[node name="nosek" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, -0.5)
+shape = SubResource("BoxShape3D_hbk4p")
+metadata/_edit_group_ = true
+
+[node name="nosekmesh" type="MeshInstance3D" parent="nosek"]
+mesh = SubResource("BoxMesh_0mvpa")
+
+[connection signal="timeout" from="EnemyBulletSpawner/FireTimer" to="EnemyBulletSpawner" method="_on_fire_timer_timeout"]
+[connection signal="body_entered" from="BulletHitBox" to="." method="_on_bullet_hit_box_body_entered"]
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
