@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dbmn2kijch8il"]
+[gd_scene load_steps=6 format=3 uid="uid://hn4lhqsi1c87"]
 
 [ext_resource type="FontFile" uid="uid://dvvco1065bgll" path="res://Assets/Font/CorleoneDue-Wp8v.ttf" id="1_5vhv1"]
 [ext_resource type="Script" path="res://displatText.gd" id="1_pryf4"]

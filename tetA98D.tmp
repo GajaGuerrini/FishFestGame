@@ -12,9 +12,6 @@ shader_parameter/Color = Color(1, 1, 1, 0.498039)
 shader_parameter/Shine = 0.2
 shader_parameter/Roughness = 0.2
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_wgvl3"]
-viewport_path = NodePath("SubViewportContainer/TextsubPort")
-
 [node name="TetsEnv" type="Node3D"]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]

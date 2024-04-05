@@ -12,7 +12,7 @@ radius = 1.0
 height = 2.2
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_sny6t"]
-radius = 10.0
+radius = 5.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hbk4p"]
 size = Vector3(0.5, 0.5, 0.8)
@@ -25,7 +25,7 @@ script = ExtResource("1_g3l73")
 
 [node name="EnemyBulletSpawner" type="Node3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.588426, -1.06349)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -1)
 script = ExtResource("2_fqmsd")
 
 [node name="FireTimer" type="Timer" parent="EnemyBulletSpawner"]
