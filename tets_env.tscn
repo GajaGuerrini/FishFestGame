@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bq157fj42m03w"]
+[gd_scene load_steps=9 format=3 uid="uid://bq157fj42m03w"]
 
 [ext_resource type="PackedScene" uid="uid://cydxejijcnvuu" path="res://controllers/fps_controller.tscn" id="1_euewd"]
 [ext_resource type="Shader" path="res://glass_looking.gdshader" id="1_rf483"]
 [ext_resource type="PackedScene" uid="uid://dswiyvwlcf6f2" path="res://world.tscn" id="3_r1hm8"]
 [ext_resource type="PackedScene" uid="uid://bmwveumwt0ifa" path="res://enemy/HittingTrueEnemy.tscn" id="4_03eiq"]
 [ext_resource type="PackedScene" uid="uid://deoshw0p4f1yy" path="res://enemy/TrueEnemy.tscn" id="5_56o6a"]
+[ext_resource type="PackedScene" uid="uid://dbmn2kijch8il" path="res://text.tscn" id="6_jsjwl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a83pq"]
 render_priority = 0
@@ -12,6 +13,9 @@ shader = ExtResource("1_rf483")
 shader_parameter/Color = Color(1, 1, 1, 0.498039)
 shader_parameter/Shine = 0.2
 shader_parameter/Roughness = 0.2
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_wgvl3"]
+viewport_path = NodePath("SubViewportContainer/TextsubPort")
 
 [node name="TetsEnv" type="Node3D"]
 
@@ -42,3 +46,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.42922, -18, -28.201)
 
 [node name="HittingEnemy" parent="." instance=ExtResource("4_03eiq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.9762, -17.8514, -3.76172)
+
+[node name="Sprite3D" parent="." instance=ExtResource("6_jsjwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.0325, -17.5108, -37.0472)
+texture = SubResource("ViewportTexture_wgvl3")
