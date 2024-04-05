@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://hn4lhqsi1c87"]
+
+[ext_resource type="FontFile" uid="uid://dvvco1065bgll" path="res://Assets/Font/CorleoneDue-Wp8v.ttf" id="1_5vhv1"]
+[ext_resource type="Script" path="res://displatText.gd" id="1_pryf4"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_xl2xs"]
+viewport_path = NodePath("SubViewportContainer/TextsubPort")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_rbwjn"]
+radius = 2.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_7l8rs"]
+
+[node name="TextSprite" type="Sprite3D"]
+billboard = 1
+texture = SubResource("ViewportTexture_xl2xs")
+script = ExtResource("1_pryf4")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -512.0
+offset_top = -512.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="TextsubPort" type="SubViewport" parent="SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(200, 200)
+render_target_update_mode = 4
+
+[node name="Label" type="Label" parent="SubViewportContainer/TextsubPort"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("1_5vhv1")
+theme_override_font_sizes/font_size = 20
+text = "some TEXT"
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_rbwjn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_7l8rs")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

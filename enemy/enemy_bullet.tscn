@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://b32ayqxemm0rm"]
+[gd_scene load_steps=5 format=3 uid="uid://bos276fq7i8nt"]
 
 [ext_resource type="Script" path="res://standard_bullet.gd" id="1_v32qv"]
 
@@ -30,6 +30,7 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 mesh = SubResource("SphereMesh_8b1ns")
 
 [node name="DespawnBullet" type="Timer" parent="."]
+wait_time = 0.5
 autostart = true
 
 [connection signal="timeout" from="DespawnBullet" to="." method="_on_despawn_bullet_timeout"]

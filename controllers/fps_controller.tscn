@@ -11,7 +11,8 @@
 [ext_resource type="Script" path="res://controllers/scripts/JumpingPlayerState.gd" id="8_672pm"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hmu05"]
-height = 1.5
+radius = 0.25
+height = 1.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dj4ni"]
 albedo_color = Color(1, 0, 1, 1)

@@ -22,7 +22,6 @@ size = Vector3(0.5, 0.5, 0.8)
 
 [node name="HittingEnemy" type="CharacterBody3D"]
 script = ExtResource("1_g3l73")
-CURRENT_HP = 5000
 
 [node name="EnemyBulletSpawner" type="Node3D" parent="."]
 unique_name_in_owner = true

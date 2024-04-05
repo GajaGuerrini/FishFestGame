@@ -14,8 +14,7 @@ func _process(_delta):
 	pass
 
 func _physics_process(_delta):
-	var _directionOfEnemy = (Global.player.position- position).normalized()
-	spawn_bullet()
+	pass
 	
 func spawn_bullet():
 	var projectile = bullet_scene.instantiate()
