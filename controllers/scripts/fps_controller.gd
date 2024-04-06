@@ -6,7 +6,7 @@ extends CharacterBody3D
 @export var TILT_UPPER_LIMIT := deg_to_rad(75.0)
 @export var CAMERA_CONTROLLER : Camera3D
 @export var ANIMATIONPLAYER : AnimationPlayer
-@export var CURRENT_HP : int = 50
+@export var MAX_HP : int = 50
 #standard bullet
 @export var BULLET_SPEED : int = 25
 @onready var bullet_scene = preload("res://standard_bullet.tscn")
@@ -20,8 +20,7 @@ var _tilt_input : float
 var _mouse_rotation : Vector3
 var _player_rotation : Vector3
 var _camera_rotation : Vector3
-
-signal NoBullet
+var CURRENT_HP : int
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 # gravitacijo se lahko spremeni po potrebi
@@ -60,10 +59,10 @@ func _ready():
 	
 	Global.player = self
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	# _speed = SPEED
+	CURRENT_HP = MAX_HP
+	set_health_label()
+	set_health_bar()
 	
-	# CROUCH_SHAPECAST.add_exception($".")
-
 func _physics_process(delta):
 	
 	Global.debug.add_property("Velocity","%.2f" % velocity.length(), 2)
@@ -100,6 +99,22 @@ func _on_area_detecting_hits_body_entered(body):
 		body.queue_free()
 		print("bullet hit! Player HP: ",CURRENT_HP)
 		$AreaDetectingHits/AudioPlayerisHitt.play()
+		set_health_label()
+		set_health_bar()
 	if CURRENT_HP == 0:
 		$AreaDetectingHits/AudioPlayerDeath.play()
 		print("No HP")
+		set_health_bar()
+		set_health_label()
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		await $AreaDetectingHits/AudioPlayerDeath.finished
+		get_tree().change_scene_to_file("res://game_over.tscn")
+		
+		
+
+func set_health_label() -> void:
+	$PlayersHP/PanelContainer/Panel/VBoxContainer/HP.text = "HP: %s" % CURRENT_HP
+
+func set_health_bar() -> void:
+	$PlayersHP/PanelContainer/Panel/VBoxContainer/HPBar.max_value = MAX_HP
+	$PlayersHP/PanelContainer/Panel/VBoxContainer/HPBar.value = CURRENT_HP

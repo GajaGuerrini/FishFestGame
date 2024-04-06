@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://i7ngu88cfemv"]
+[gd_scene load_steps=9 format=3 uid="uid://caxt8xfachhgu"]
 
 [ext_resource type="Script" path="res://enemy/HittingTrueEnemy.gd" id="1_8gias"]
 [ext_resource type="Script" path="res://enemy/BulletSpawner.gd" id="2_oikta"]

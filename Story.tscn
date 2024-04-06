@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dsdii7mnd22rf"]
+[gd_scene load_steps=5 format=3 uid="uid://dysfyxindm4s1"]
 
 [ext_resource type="Script" path="res://Story.gd" id="1_atg7b"]
 [ext_resource type="Texture2D" uid="uid://c6nm7ybxxoxgl" path="res://Assets/Fish/fishbg.png" id="2_qn8kl"]
