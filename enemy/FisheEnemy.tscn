@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://caxt8xfachhgu"]
+
+[ext_resource type="Script" path="res://enemy/HittingTrueEnemy.gd" id="1_8gias"]
+[ext_resource type="Script" path="res://enemy/BulletSpawner.gd" id="2_oikta"]
+[ext_resource type="AudioStream" uid="uid://04mtsmc1tr1b" path="res://Assets/Audio/Fish Shooter (SFX) Enemy damaged.wav" id="3_oltb4"]
+[ext_resource type="ArrayMesh" uid="uid://b7tu76y3obeni" path="res://Assets/Fish/FishV1_out/fish1.res" id="3_wd3mr"]
+[ext_resource type="AudioStream" uid="uid://dsd0l1mrp0otb" path="res://Assets/Audio/Fish Shooter (SFX) Enemy died.mp3" id="4_kc5wc"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_s0ojb"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u270r"]
+radius = 1.0
+height = 2.2
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_sny6t"]
+radius = 5.0
+
+[node name="Fish1EnemyHitting" type="CharacterBody3D"]
+script = ExtResource("1_8gias")
+
+[node name="EnemyBulletSpawner" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -1)
+script = ExtResource("2_oikta")
+
+[node name="FireTimer" type="Timer" parent="EnemyBulletSpawner"]
+autostart = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_s0ojb")
+
+[node name="Fish1" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.31134e-07, 0, 6, 0, 3, 0, -3, 0, -2.62268e-07, 0, 0, 0)
+mesh = ExtResource("3_wd3mr")
+
+[node name="BulletHitBox" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BulletHitBox"]
+shape = SubResource("CapsuleShape3D_u270r")
+
+[node name="DetectionArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionArea"]
+shape = SubResource("SphereShape3D_sny6t")
+
+[node name="AudioEnemyDmg" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_oltb4")
+volume_db = -10.0
+max_polyphony = 30
+area_mask = 2
+
+[node name="AudioEnemyDeath" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_kc5wc")
+volume_db = 10.0
+max_polyphony = 50
+
+[connection signal="timeout" from="EnemyBulletSpawner/FireTimer" to="EnemyBulletSpawner" method="_on_fire_timer_timeout"]
+[connection signal="body_entered" from="BulletHitBox" to="." method="_on_bullet_hit_box_body_entered"]
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
