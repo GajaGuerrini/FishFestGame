@@ -68,6 +68,7 @@ stream = ExtResource("4_b58ps")
 volume_db = 10.0
 max_polyphony = 50
 
+[connection signal="amIdead" from="." to="EnemyBulletSpawner" method="_on_hitting_enemy_am_idead"]
 [connection signal="timeout" from="EnemyBulletSpawner/FireTimer" to="EnemyBulletSpawner" method="_on_fire_timer_timeout"]
 [connection signal="body_entered" from="BulletHitBox" to="." method="_on_bullet_hit_box_body_entered"]
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
