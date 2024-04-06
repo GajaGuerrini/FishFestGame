@@ -180,7 +180,6 @@ _data = {
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w6rqi"]
 
 [node name="FPS_Controller" type="CharacterBody3D" node_paths=PackedStringArray("CAMERA_CONTROLLER", "ANIMATIONPLAYER")]
-collision_layer = 2
 script = ExtResource("1_25682")
 CAMERA_CONTROLLER = NodePath("CameraController/MainCamera")
 ANIMATIONPLAYER = NodePath("CameraController/cameraAnimation")

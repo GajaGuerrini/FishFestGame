@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cmwtq1bi1tjkf"]
+[gd_scene load_steps=11 format=3 uid="uid://b3q4ks0yvjd6q"]
 
 [ext_resource type="Texture2D" uid="uid://bgeghwcibx81w" path="res://Assets/world/materials/sand/Ground055S_1K-JPG_Color.jpg" id="1_cusn8"]
 [ext_resource type="Texture2D" uid="uid://pjhkspb4u1nb" path="res://Assets/world/materials/sand/Ground055S_1K-JPG_Roughness.jpg" id="2_026wo"]
@@ -6,7 +6,6 @@
 [ext_resource type="Shader" path="res://glass_looking.gdshader" id="4_d8m7l"]
 [ext_resource type="PackedScene" uid="uid://cydxejijcnvuu" path="res://controllers/fps_controller.tscn" id="5_yd7b4"]
 [ext_resource type="PackedScene" uid="uid://dswiyvwlcf6f2" path="res://world.tscn" id="6_wfbcp"]
-[ext_resource type="PackedScene" uid="uid://bmwveumwt0ifa" path="res://enemy/HittingTrueEnemy.tscn" id="7_d0dlb"]
 
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_4di83"]
 albedo_texture = ExtResource("1_cusn8")
@@ -41,9 +40,10 @@ use_collision = true
 collision_layer = 15
 collision_mask = 15
 size = Vector3(70, 5, 50)
+metadata/_edit_lock_ = true
 
 [node name="Lid" type="CSGMesh3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 40, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 40, 0)
 use_collision = true
 collision_layer = 15
 collision_mask = 15
@@ -51,7 +51,7 @@ mesh = SubResource("BoxMesh_vipgn")
 material = SubResource("StandardMaterial3D_r2jah")
 
 [node name="Aquarium" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 15, 0)
 material_override = SubResource("ShaderMaterial_a83pq")
 transparency = 0.56
 operation = 2
@@ -65,9 +65,271 @@ operation = 2
 size = Vector3(65, 50, 45)
 
 [node name="FPS_Controller" parent="." instance=ExtResource("5_yd7b4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.575882, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.5159, 0.860165, 8.09912)
 
 [node name="WorldEnvironment" parent="." instance=ExtResource("6_wfbcp")]
 
-[node name="HittingEnemy" parent="." instance=ExtResource("7_d0dlb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.31564, 1.01364, -1.44287)
+[node name="grad" type="CSGCombiner3D" parent="."]
+use_collision = true
+collision_layer = 15
+collision_mask = 15
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="grad"]
+transform = Transform3D(2, 0, 0, 0, 10, 0, 0, 0, 2, -2.08782, 0, 11.8488)
+metadata/_edit_lock_ = true
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="grad"]
+transform = Transform3D(2, 0, 0, 0, 10, 0, 0, 0, 2, -2.08782, 0, -16.894)
+metadata/_edit_lock_ = true
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="grad"]
+transform = Transform3D(2, 0, 0, 0, 10, 0, 0, 0, 2, -31.8207, 0, -16.894)
+metadata/_edit_lock_ = true
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="grad"]
+transform = Transform3D(2, 0, 0, 0, 10, 0, 0, 0, 2, -31.8207, 0, 11.896)
+metadata/_edit_lock_ = true
+
+[node name="TLA" type="CSGBox3D" parent="grad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.0076, 0.109527, -2.72272)
+size = Vector3(28.488, 0, 27.934)
+metadata/_edit_lock_ = true
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="grad"]
+transform = Transform3D(0.345298, -0.938493, 0, 0.938493, 0.345298, 0, 0, 0, 1, -17.5941, 0.893184, 9.21615)
+use_collision = true
+collision_layer = 15
+collision_mask = 15
+size = Vector3(0.29945, 7.91127, 4.02051)
+metadata/_edit_lock_ = true
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="grad"]
+transform = Transform3D(0.345298, -0.938493, 0, 0.938493, 0.345298, 0, 0, 0, 1, -23.6514, 3.10342, 9.21615)
+use_collision = true
+collision_layer = 15
+collision_mask = 15
+size = Vector3(0.29945, 6.83356, 4.02051)
+metadata/_edit_lock_ = true
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="grad"]
+transform = Transform3D(0.345298, -0.938493, 0, 0.938493, 0.345298, 0, 0, 0, 1, -17.5941, 0.893184, -14.721)
+use_collision = true
+collision_layer = 15
+collision_mask = 15
+size = Vector3(0.29945, 7.91127, 4.02051)
+metadata/_edit_lock_ = true
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="grad"]
+transform = Transform3D(0.345298, -0.938493, 0, 0.938493, 0.345298, 0, 0, 0, 1, -23.6514, 3.10342, -14.721)
+use_collision = true
+collision_layer = 15
+collision_mask = 15
+size = Vector3(0.29945, 6.83356, 4.02051)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="grad"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -5.13339, 4.17868, -2.7795)
+use_collision = true
+collision_layer = 15
+collision_mask = 15
+size = Vector3(0.29945, 4.57172, 27.5439)
+metadata/_edit_lock_ = true
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="grad"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -28.9804, 4.17868, -2.7795)
+use_collision = true
+collision_layer = 15
+collision_mask = 15
+size = Vector3(0.29945, 4.57172, 27.5439)
+metadata/_edit_lock_ = true
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="grad"]
+transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, -22.1514, 4.17868, -2.7971)
+use_collision = true
+collision_layer = 15
+collision_mask = 15
+size = Vector3(0.29945, 7.86113, 13.0472)
+metadata/_edit_lock_ = true
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="grad"]
+transform = Transform3D(-2.81123e-08, -0.643135, 0.765753, 1, -4.37114e-08, -2.01434e-15, 3.34721e-08, 0.765753, 0.643135, -11.4557, 4.17868, 4.35184)
+use_collision = true
+collision_layer = 15
+collision_mask = 15
+size = Vector3(0.29945, 4.57172, 17)
+metadata/_edit_lock_ = true
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="grad"]
+transform = Transform3D(3.02264e-08, 0.6915, 0.722376, 1, -4.37114e-08, -2.49032e-15, 3.15761e-08, 0.722376, -0.691501, -12.4557, 4.17868, -9.91083)
+use_collision = true
+collision_layer = 15
+collision_mask = 15
+size = Vector3(0.29945, 4.57172, 17)
+metadata/_edit_lock_ = true
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="grad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.34453, 4.53139, -3.40498)
+use_collision = true
+collision_layer = 15
+collision_mask = 15
+size = Vector3(0.29945, 0.469835, 20.7871)
+metadata/_edit_lock_ = true
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="grad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.34453, 4.43435, -3.40498)
+use_collision = true
+collision_layer = 15
+collision_mask = 15
+size = Vector3(0.29945, 0.469835, 20.7871)
+metadata/_edit_lock_ = true
+
+[node name="Grad3" type="CSGBox3D" parent="grad"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -31.837, 3.84602, -2.70891)
+layers = 7
+size = Vector3(30, 10, 1)
+metadata/_edit_lock_ = true
+
+[node name="Grad4" type="CSGBox3D" parent="grad"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.21369, 3.79213, 5.3115)
+layers = 7
+size = Vector3(12, 10, 1)
+metadata/_edit_lock_ = true
+
+[node name="Grad6" type="CSGBox3D" parent="grad"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.21369, 5.5536, -2.6885)
+layers = 7
+size = Vector3(12, 6.47705, 1)
+metadata/_edit_lock_ = true
+
+[node name="Grad5" type="CSGBox3D" parent="grad"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.21369, 3.79213, -10.8483)
+layers = 7
+size = Vector3(12, 10, 1)
+metadata/_edit_lock_ = true
+
+[node name="Grad2" type="CSGBox3D" parent="grad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.6334, 3.83273, 11.7946)
+layers = 7
+size = Vector3(30, 10, 1)
+metadata/_edit_lock_ = true
+
+[node name="Grad" type="CSGBox3D" parent="grad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.8102, 3.88086, -17.1439)
+layers = 7
+size = Vector3(30, 10, 1)
+metadata/_edit_lock_ = true
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="grad"]
+transform = Transform3D(-8.74228e-08, -2, 0, 2, -8.74228e-08, 0, 0, 0, 2, -1.93839, 0.53189, -2.88435)
+sides = 64
+
+[node name="CSGTorus3D2" type="CSGTorus3D" parent="grad"]
+transform = Transform3D(-1.31134e-07, -3, 0, 3, -1.31134e-07, 0, 0, 0, 3, -1.7966, 0.588738, -2.88435)
+sides = 64
+
+[node name="Coral" type="Node3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 6.95054, -0.56356, 0, 2.8178, 1.39011, 23.3772, 0.783068, 11.6422)
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Coral"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+use_collision = true
+
+[node name="CSGSphere3D5" type="CSGSphere3D" parent="Coral"]
+transform = Transform3D(1, 0, 0, 0, 0.404679, 0.91446, 0, -0.914459, 0.404679, 0.0691643, 0.741165, -0.276286)
+use_collision = true
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="Coral"]
+transform = Transform3D(-0.541004, -0.947931, -0.779406, 0.0631954, 0.469487, -0.10731, 0.779406, -1.60965, -0.323483, -0.319035, 0.311132, -0.841928)
+use_collision = true
+
+[node name="CSGSphere3D6" type="CSGSphere3D" parent="Coral"]
+transform = Transform3D(0.215669, -1.79709, -0.768902, 0.074843, 0.567764, -0.0518776, 0.923059, -0.397573, 0.360179, -0.319035, 0.784024, -0.841076)
+use_collision = true
+
+[node name="CSGSphere3D7" type="CSGSphere3D" parent="Coral"]
+transform = Transform3D(-0.458994, -1.10176, -0.808941, 0.0673, 0.4779, -0.10079, 0.830029, -1.50589, -0.243076, 0.0975323, 0.763002, -1.28411)
+use_collision = true
+
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="Coral"]
+transform = Transform3D(-0.246461, 1.05495, 0.607178, -0.0492309, 0.485487, -0.0659081, -0.607178, -1.41232, -0.112863, 0.53529, 0.398817, -1.17689)
+use_collision = true
+
+[node name="CSGSphere3D4" type="CSGSphere3D" parent="Coral"]
+transform = Transform3D(0.0173729, -1.82185, 0.555868, 0.0567792, -0.431952, -0.0788525, 0.63961, 1.00811, 0.159898, 0.809212, 0.549038, -0.724157)
+use_collision = true
+
+[node name="Coral2" type="Node3D" parent="."]
+transform = Transform3D(-0.545736, -2.82541, -1.39386, 0, 7.41391, -0.601131, 1.50405, -1.02518, -0.505755, 14.8208, 0.783068, -14.1767)
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Coral2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+use_collision = true
+
+[node name="CSGSphere3D5" type="CSGSphere3D" parent="Coral2"]
+transform = Transform3D(1, 0, 0, 0, 0.404679, 0.91446, 0, -0.914459, 0.404679, 0.0691643, 0.741165, -0.276286)
+use_collision = true
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="Coral2"]
+transform = Transform3D(-0.541004, -0.947931, -0.779406, 0.0631954, 0.469487, -0.10731, 0.779406, -1.60965, -0.323483, -0.319035, 0.311132, -0.841928)
+use_collision = true
+
+[node name="CSGSphere3D6" type="CSGSphere3D" parent="Coral2"]
+transform = Transform3D(0.215669, -1.79709, -0.768902, 0.074843, 0.567764, -0.0518776, 0.923059, -0.397573, 0.360179, -0.319035, 0.784024, -0.841076)
+use_collision = true
+
+[node name="CSGSphere3D7" type="CSGSphere3D" parent="Coral2"]
+transform = Transform3D(-0.458994, -1.10176, -0.808941, 0.0673, 0.4779, -0.10079, 0.830029, -1.50589, -0.243076, 0.0975323, 0.763002, -1.28411)
+use_collision = true
+
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="Coral2"]
+transform = Transform3D(-0.246461, 1.05495, 0.607178, -0.0492309, 0.485487, -0.0659081, -0.607178, -1.41232, -0.112863, 0.53529, 0.398817, -1.17689)
+use_collision = true
+
+[node name="CSGSphere3D4" type="CSGSphere3D" parent="Coral2"]
+transform = Transform3D(0.0173729, -1.82185, 0.555868, 0.0567792, -0.431952, -0.0788525, 0.63961, 1.00811, 0.159898, 0.809212, 0.549038, -0.724157)
+use_collision = true
+
+[node name="TorusCoral" type="Node3D" parent="."]
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="TorusCoral"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.0028, 0, 0)
+use_collision = true
+
+[node name="CSGTorus3D2" type="CSGTorus3D" parent="TorusCoral"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.0028, 0, 0)
+use_collision = true
+sides = 24
+ring_sides = 15
+
+[node name="CSGTorus3D3" type="CSGTorus3D" parent="TorusCoral"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.0028, 0.301963, 0)
+use_collision = true
+sides = 24
+ring_sides = 15
+
+[node name="CSGTorus3D4" type="CSGTorus3D" parent="TorusCoral"]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 19.0028, 0.460637, 0)
+use_collision = true
+sides = 24
+ring_sides = 15
+
+[node name="CSGTorus3D5" type="CSGTorus3D" parent="TorusCoral"]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 19.0028, 0.718397, 0)
+use_collision = true
+sides = 24
+ring_sides = 15
+
+[node name="CSGTorus3D6" type="CSGTorus3D" parent="TorusCoral"]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 19.0028, 1.14593, 0)
+use_collision = true
+inner_radius = 0.8
+outer_radius = 1.1
+sides = 24
+ring_sides = 15
+
+[node name="CSGTorus3D7" type="CSGTorus3D" parent="TorusCoral"]
+transform = Transform3D(1.335, 0, 0, 0, 1.335, 0, 0, 0, 1.335, 19.0028, 1.44207, 0)
+use_collision = true
+inner_radius = 0.8
+outer_radius = 1.1
+sides = 24
+ring_sides = 15
