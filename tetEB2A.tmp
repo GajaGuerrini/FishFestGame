@@ -1,0 +1,59 @@
+[gd_scene load_steps=10 format=3 uid="uid://bq157fj42m03w"]
+
+[ext_resource type="PackedScene" uid="uid://cydxejijcnvuu" path="res://controllers/fps_controller.tscn" id="1_euewd"]
+[ext_resource type="Texture2D" uid="uid://bgeghwcibx81w" path="res://Assets/world/materials/sand/Ground055S_1K-JPG_Color.jpg" id="1_q0rd1"]
+[ext_resource type="Shader" path="res://glass_looking.gdshader" id="1_rf483"]
+[ext_resource type="Texture2D" uid="uid://pjhkspb4u1nb" path="res://Assets/world/materials/sand/Ground055S_1K-JPG_Roughness.jpg" id="2_yoywq"]
+[ext_resource type="Texture2D" uid="uid://dkx5nq4h2wr6j" path="res://Assets/world/materials/sand/Ground055S_1K-JPG_NormalGL.jpg" id="3_17dk4"]
+[ext_resource type="PackedScene" uid="uid://dswiyvwlcf6f2" path="res://world.tscn" id="3_r1hm8"]
+[ext_resource type="PackedScene" uid="uid://bmwveumwt0ifa" path="res://enemy/HittingTrueEnemy.tscn" id="7_vfmdc"]
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_4di83"]
+albedo_texture = ExtResource("1_q0rd1")
+normal_enabled = true
+normal_texture = ExtResource("3_17dk4")
+clearcoat_enabled = true
+clearcoat = 0.0
+clearcoat_roughness = 1.0
+clearcoat_texture = ExtResource("2_yoywq")
+refraction_enabled = true
+uv1_scale = Vector3(10, 10, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a83pq"]
+render_priority = 0
+shader = ExtResource("1_rf483")
+shader_parameter/Color = Color(1, 1, 1, 0.498039)
+shader_parameter/Shine = 0.2
+shader_parameter/Roughness = 0.2
+
+[node name="TetsEnv" type="Node3D"]
+
+[node name="Floor" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5, 0)
+material_override = SubResource("ORMMaterial3D_4di83")
+use_collision = true
+collision_layer = 15
+collision_mask = 15
+size = Vector3(15, 5, 10)
+
+[node name="Aquarium" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, 0)
+material_override = SubResource("ShaderMaterial_a83pq")
+transparency = 0.56
+operation = 2
+use_collision = true
+collision_layer = 15
+collision_mask = 15
+size = Vector3(20, 50, 15)
+
+[node name="cube" type="CSGBox3D" parent="Aquarium"]
+operation = 2
+size = Vector3(15, 50, 10)
+
+[node name="FPS_Controller" parent="." instance=ExtResource("1_euewd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.575882, 0)
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("3_r1hm8")]
+
+[node name="HittingEnemy" parent="." instance=ExtResource("7_vfmdc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.31564, 1.01364, -1.44287)
