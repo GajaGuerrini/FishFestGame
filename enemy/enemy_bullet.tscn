@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bos276fq7i8nt"]
+[gd_scene load_steps=7 format=3 uid="uid://bos276fq7i8nt"]
 
 [ext_resource type="Script" path="res://standard_bullet.gd" id="1_v32qv"]
+[ext_resource type="Shader" path="res://enemy/bullet.gdshader" id="2_v2lf2"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_2eupv"]
 
@@ -15,9 +16,19 @@ emission_energy_multiplier = 0.2
 [sub_resource type="SphereMesh" id="SphereMesh_8b1ns"]
 material = SubResource("StandardMaterial3D_lrq3b")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jf7rx"]
+render_priority = 0
+shader = ExtResource("2_v2lf2")
+shader_parameter/fuwafuwa_speed = 1.5
+shader_parameter/fuwafuwa_size = 0.05
+shader_parameter/outline_color = Color(0.823529, 0.0980392, 0.254902, 1)
+shader_parameter/outline_ratio = 1.0
+shader_parameter/noise_speed = 0.2
+shader_parameter/noise_scale = 0.5
+
 [node name="EnemyBullet" type="RigidBody3D" groups=["enemy_projectile"]]
-collision_layer = 7
-collision_mask = 6
+collision_layer = 3
+collision_mask = 2
 script = ExtResource("1_v32qv")
 metadata/_edit_group_ = true
 
@@ -28,6 +39,7 @@ shape = SubResource("SphereShape3D_2eupv")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 mesh = SubResource("SphereMesh_8b1ns")
+surface_material_override/0 = SubResource("ShaderMaterial_jf7rx")
 
 [node name="DespawnBullet" type="Timer" parent="."]
 wait_time = 0.5

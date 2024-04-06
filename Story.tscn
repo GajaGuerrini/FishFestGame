@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://dsdii7mnd22rf"]
+
+[ext_resource type="Script" path="res://Story.gd" id="1_atg7b"]
+[ext_resource type="Texture2D" uid="uid://c6nm7ybxxoxgl" path="res://Assets/Fish/fishbg.png" id="2_qn8kl"]
+[ext_resource type="FontFile" uid="uid://desrlk077pg0x" path="res://Assets/Font/TheGodfather-rgRK.ttf" id="3_fc6qj"]
+[ext_resource type="FontFile" uid="uid://dvvco1065bgll" path="res://Assets/Font/CorleoneDue-Wp8v.ttf" id="4_hik2i"]
+
+[node name="Story" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_atg7b")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -14.0
+offset_top = -84.0
+offset_right = 2396.0
+offset_bottom = 2076.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_qn8kl")
+
+[node name="ContinueButton" type="Button" parent="."]
+layout_mode = 2
+offset_left = 722.0
+offset_top = 490.0
+offset_right = 916.0
+offset_bottom = 544.0
+theme_override_fonts/font = ExtResource("3_fc6qj")
+theme_override_font_sizes/font_size = 40
+text = "Continue"
+
+[node name="GameStory" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -537.0
+offset_top = 49.0
+offset_right = 542.0
+offset_bottom = 622.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0.392157, 0.784314, 1)
+theme_override_fonts/font = ExtResource("4_hik2i")
+theme_override_font_sizes/font_size = 40
+text = "
+
+They took my wife fish, my children fish and my cat fish. "
+vertical_alignment = 1
+autowrap_mode = 1
+
+[connection signal="pressed" from="ContinueButton" to="." method="_on_continue_button_pressed"]
