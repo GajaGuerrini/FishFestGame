@@ -69,4 +69,7 @@ func _on_bullet_hit_box_body_entered(body):
 		print("bullet hit! remaining HP: ",CURRENT_HP)
 		$AudioEnemyDmg.play()
 		if CURRENT_HP == 0:
-			queue_free()
+			$AudioEnemyDeath.play()
+			$AudioEnemyDmg.stop()
+			hide()
+			#queue_free()

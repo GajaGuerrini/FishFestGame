@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dsd0l1mrp0otb"
+path="res://.godot/imported/Fish Shooter (SFX) Enemy died.mp3-466dd34647bbd87508b0892aea56c013.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/Fish Shooter (SFX) Enemy died.mp3"
+dest_files=["res://.godot/imported/Fish Shooter (SFX) Enemy died.mp3-466dd34647bbd87508b0892aea56c013.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -11,6 +11,9 @@ sky_material = SubResource("PanoramaSkyMaterial_o3nb7")
 [sub_resource type="Environment" id="Environment_x65os"]
 background_mode = 2
 sky = SubResource("Sky_n5km3")
+ambient_light_source = 3
+ambient_light_color = Color(0.712961, 0.587454, 0.376545, 1)
+fog_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment"]
 environment = SubResource("Environment_x65os")

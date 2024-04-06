@@ -101,4 +101,5 @@ func _on_area_detecting_hits_body_entered(body):
 		print("bullet hit! remaining HP: ",CURRENT_HP)
 		$AreaDetectingHits/AudioPlayerisHitt.play()
 	if CURRENT_HP == 0:
+		$AreaDetectingHits/AudioPlayerDeath.play()
 		print("No HP")
