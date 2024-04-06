@@ -72,4 +72,5 @@ func _on_bullet_hit_box_body_entered(body):
 			$AudioEnemyDeath.play()
 			$AudioEnemyDmg.stop()
 			hide()
+			$EnemyBulletSpawner/FireTimer.stop()
 			#queue_free()
