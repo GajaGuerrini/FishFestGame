@@ -98,7 +98,7 @@ func _on_area_detecting_hits_body_entered(body):
 	if body.is_in_group("enemy_projectile"):
 		CURRENT_HP -= 1
 		body.queue_free()
-		print("bullet hit! remaining HP: ",CURRENT_HP)
+		print("bullet hit! Player HP: ",CURRENT_HP)
 		$AreaDetectingHits/AudioPlayerisHitt.play()
 	if CURRENT_HP == 0:
 		$AreaDetectingHits/AudioPlayerDeath.play()
