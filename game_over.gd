@@ -16,4 +16,4 @@ func _on_button_pressed():
 
 
 func _on_restart_pressed():
-	get_tree().change_scene_to_file("res://tets_env.tscn")
+	get_tree().change_scene_to_file("res://GradekZaIvota.tscn")

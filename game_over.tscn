@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://8v7sl2wouhld"]
+[gd_scene load_steps=4 format=3 uid="uid://bo45vw0fufcux"]
 
 [ext_resource type="Texture2D" uid="uid://brdd57jm3fs8x" path="res://Assets/Fish/fishGameOver.png" id="1_56o41"]
 [ext_resource type="Script" path="res://game_over.gd" id="1_sp6ll"]

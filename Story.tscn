@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dysfyxindm4s1"]
+[gd_scene load_steps=5 format=3 uid="uid://dsdii7mnd22rf"]
 
 [ext_resource type="Script" path="res://Story.gd" id="1_atg7b"]
 [ext_resource type="Texture2D" uid="uid://c6nm7ybxxoxgl" path="res://Assets/Fish/fishbg.png" id="2_qn8kl"]
@@ -46,10 +46,9 @@ grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0.392157, 0.784314, 1)
 theme_override_fonts/font = ExtResource("4_hik2i")
 theme_override_font_sizes/font_size = 40
-text = "
-
-They took my wife fish, my children fish and my cat fish. "
+text = "The sicilian Fish Mafia has stolen your beloved catfish Pescegatto. You have located the aquarium where they are holding him hostage. 
+Rescue Pescegatto!"
 vertical_alignment = 1
-autowrap_mode = 1
+autowrap_mode = 3
 
 [connection signal="pressed" from="ContinueButton" to="." method="_on_continue_button_pressed"]

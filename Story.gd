@@ -12,4 +12,4 @@ func _process(delta):
 
 
 func _on_continue_button_pressed():
-	get_tree().change_scene_to_file("res://tets_env.tscn")
+	get_tree().change_scene_to_file("res://GradekZaIvota.tscn")

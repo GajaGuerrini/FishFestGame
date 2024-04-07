@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://caxt8xfachhgu"]
+[gd_scene load_steps=9 format=3 uid="uid://i7ngu88cfemv"]
 
 [ext_resource type="Script" path="res://enemy/HittingTrueEnemy.gd" id="1_8gias"]
 [ext_resource type="Script" path="res://enemy/BulletSpawner.gd" id="2_oikta"]
@@ -16,6 +16,7 @@ height = 2.2
 radius = 5.0
 
 [node name="Fish1EnemyHitting" type="CharacterBody3D"]
+collision_mask = 3
 script = ExtResource("1_8gias")
 
 [node name="EnemyBulletSpawner" type="Node3D" parent="."]
@@ -35,11 +36,15 @@ transform = Transform3D(-1.31134e-07, 0, 6, 0, 3, 0, -3, 0, -2.62268e-07, 0, 0, 
 mesh = ExtResource("3_wd3mr")
 
 [node name="BulletHitBox" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BulletHitBox"]
 shape = SubResource("CapsuleShape3D_u270r")
 
 [node name="DetectionArea" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionArea"]
 shape = SubResource("SphereShape3D_sny6t")

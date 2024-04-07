@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b3q4ks0yvjd6q"]
+[gd_scene load_steps=11 format=3 uid="uid://cmwtq1bi1tjkf"]
 
 [ext_resource type="Texture2D" uid="uid://bgeghwcibx81w" path="res://Assets/world/materials/sand/Ground055S_1K-JPG_Color.jpg" id="1_cusn8"]
 [ext_resource type="Texture2D" uid="uid://pjhkspb4u1nb" path="res://Assets/world/materials/sand/Ground055S_1K-JPG_Roughness.jpg" id="2_026wo"]
@@ -185,7 +185,7 @@ metadata/_edit_lock_ = true
 [node name="Grad3" type="CSGBox3D" parent="grad"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -31.837, 3.84602, -2.70891)
 layers = 7
-size = Vector3(30, 10, 1)
+size = Vector3(30, 10, 1.5)
 metadata/_edit_lock_ = true
 
 [node name="Grad4" type="CSGBox3D" parent="grad"]
@@ -209,13 +209,13 @@ metadata/_edit_lock_ = true
 [node name="Grad2" type="CSGBox3D" parent="grad"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.6334, 3.83273, 11.7946)
 layers = 7
-size = Vector3(30, 10, 1)
+size = Vector3(30, 10, 1.5)
 metadata/_edit_lock_ = true
 
 [node name="Grad" type="CSGBox3D" parent="grad"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.8102, 3.88086, -17.1439)
 layers = 7
-size = Vector3(30, 10, 1)
+size = Vector3(30, 10, 1.5)
 metadata/_edit_lock_ = true
 
 [node name="CSGTorus3D" type="CSGTorus3D" parent="grad"]
@@ -230,7 +230,6 @@ sides = 64
 transform = Transform3D(1.5, 0, 0, 0, 6.95054, -0.56356, 0, 2.8178, 1.39011, 23.3772, 0.783068, 11.6422)
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="Coral"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 use_collision = true
 
 [node name="CSGSphere3D5" type="CSGSphere3D" parent="Coral"]
@@ -261,7 +260,6 @@ use_collision = true
 transform = Transform3D(-0.545736, -2.82541, -1.39386, 0, 7.41391, -0.601131, 1.50405, -1.02518, -0.505755, 14.8208, 0.783068, -14.1767)
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="Coral2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 use_collision = true
 
 [node name="CSGSphere3D5" type="CSGSphere3D" parent="Coral2"]
