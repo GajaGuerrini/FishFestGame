@@ -56,4 +56,4 @@ size = Vector3(15, 50, 10)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7051, 2.25401, 0.37911)
 
 [node name="Fish2EnemyHitting" parent="." instance=ExtResource("8_f0jmj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.89248, 5.81651, -1.97092)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.58079, 19.7677, -2.77316)
