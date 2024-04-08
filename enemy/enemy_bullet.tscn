@@ -4,6 +4,7 @@
 [ext_resource type="Shader" path="res://enemy/bullet.gdshader" id="2_v2lf2"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_2eupv"]
+radius = 0.4
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lrq3b"]
 albedo_color = Color(0.980392, 0, 0.6, 1)
@@ -27,8 +28,10 @@ shader_parameter/noise_speed = 0.2
 shader_parameter/noise_scale = 0.5
 
 [node name="EnemyBullet" type="RigidBody3D" groups=["enemy_projectile"]]
-collision_layer = 7
-collision_mask = 2
+collision_layer = 16
+collision_mask = 7
+can_sleep = false
+continuous_cd = true
 script = ExtResource("1_v32qv")
 metadata/_edit_group_ = true
 

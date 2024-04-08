@@ -7,43 +7,53 @@
 [ext_resource type="AudioStream" uid="uid://dsd0l1mrp0otb" path="res://Assets/Audio/Fish Shooter (SFX) Enemy died.mp3" id="5_t8vh6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_s0ojb"]
-radius = 7.0
-height = 50.0
+radius = 1.0
+height = 12.0
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u270r"]
-radius = 7.0
-height = 50.0
+radius = 1.2
+height = 15.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_sny6t"]
-radius = 5.0
+radius = 8.0
 
 [node name="SharkEnemyHitting" type="CharacterBody3D"]
+collision_layer = 8
+collision_mask = 7
 script = ExtResource("1_d4aa4")
+CURRENT_HP = 50
+ENEMY_SPEED = 4.0
+HOVER_DISTANCE = 10.0
+REDUCING_VELOCITY_FACTOR = 5.0
 
 [node name="EnemyBulletSpawner" type="Node3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -2.87585)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -5.17171)
 script = ExtResource("2_a00k6")
 
 [node name="FireTimer" type="Timer" parent="EnemyBulletSpawner"]
+wait_time = 0.5
 autostart = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 0, 0, -0.444072)
 shape = SubResource("CapsuleShape3D_s0ojb")
 
 [node name="Shark" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.37114e-07, 0, 10, 0, 10, 0, -10, 0, -4.37114e-07, 0, 0, -0.3021)
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, 0, 0, -0.3021)
 mesh = ExtResource("3_s844v")
 
 [node name="BulletHitBox" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BulletHitBox"]
 transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_u270r")
 
 [node name="DetectionArea" type="Area3D" parent="."]
-visible = false
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionArea"]
 shape = SubResource("SphereShape3D_sny6t")
@@ -52,12 +62,14 @@ shape = SubResource("SphereShape3D_sny6t")
 stream = ExtResource("4_43yc0")
 volume_db = -10.0
 max_polyphony = 30
+bus = &"SFX"
 area_mask = 2
 
 [node name="AudioEnemyDeath" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("5_t8vh6")
 volume_db = 10.0
 max_polyphony = 50
+bus = &"SFX"
 
 [connection signal="timeout" from="EnemyBulletSpawner/FireTimer" to="EnemyBulletSpawner" method="_on_fire_timer_timeout"]
 [connection signal="body_entered" from="BulletHitBox" to="." method="_on_bullet_hit_box_body_entered"]

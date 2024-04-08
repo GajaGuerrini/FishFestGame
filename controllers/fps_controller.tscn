@@ -1,7 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://cydxejijcnvuu"]
+[gd_scene load_steps=22 format=3 uid="uid://cydxejijcnvuu"]
 
 [ext_resource type="Script" path="res://controllers/scripts/fps_controller.gd" id="1_25682"]
 [ext_resource type="Script" path="res://controllers/scripts/reticle.gd" id="2_2oukd"]
+[ext_resource type="Script" path="res://controllers/MainCamera.gd" id="2_7bsnm"]
 [ext_resource type="AudioStream" uid="uid://poljxgrd5etp" path="res://Assets/Audio/Fish_Shooter_SFX_Water_pistol.wav" id="3_ugpig"]
 [ext_resource type="Script" path="res://controllers/scripts/scripts/DebugPanel.gd" id="4_70iqa"]
 [ext_resource type="Script" path="res://controllers/scripts/scripts/State_Machine.gd" id="5_8i03q"]
@@ -181,7 +182,6 @@ collision_mask = 9
 script = ExtResource("1_25682")
 CAMERA_CONTROLLER = NodePath("CameraController/MainCamera")
 ANIMATIONPLAYER = NodePath("CameraController/cameraAnimation")
-MAX_HP = 100
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["player"]]
 transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 0, 0, 0)
@@ -197,6 +197,7 @@ libraries = {
 [node name="MainCamera" type="Camera3D" parent="CameraController"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.44646)
 fov = 90.0
+script = ExtResource("2_7bsnm")
 
 [node name="BulletSpawner" type="Node3D" parent="CameraController/MainCamera"]
 
@@ -278,16 +279,21 @@ script = ExtResource("7_ln0u6")
 
 [node name="JumpingPlayerState" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("8_672pm")
+JUMP_VELOCITY = 10.0
+REDUCING_VELOCITY = 1.5
 
 [node name="AreaDetectingHits" type="Area3D" parent="."]
-collision_mask = 12
+collision_layer = 0
+collision_mask = 16
 
 [node name="AudioPlayerDeath" type="AudioStreamPlayer3D" parent="AreaDetectingHits"]
 stream = ExtResource("11_k4jtu")
 volume_db = 10.0
+bus = &"SFX"
 
 [node name="AudioPlayerisHitt" type="AudioStreamPlayer3D" parent="AreaDetectingHits"]
 stream = ExtResource("10_ltvfq")
+bus = &"SFX"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AreaDetectingHits"]
 transform = Transform3D(9.55343e-16, 2.18557e-08, 0.5, 0.5, -2.18557e-08, 0, 2.18557e-08, 0.5, -2.18557e-08, 0, 0, 0)
@@ -304,10 +310,14 @@ offset_bottom = 40.0
 grow_horizontal = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="PlayersHP"]
-layout_mode = 0
-offset_top = 15.0
-offset_right = 300.0
-offset_bottom = 86.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_right = 150.0
+offset_bottom = 71.0
+grow_horizontal = 2
 
 [node name="Panel" type="Panel" parent="PlayersHP/PanelContainer"]
 layout_mode = 2

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcpvu0h6ayv7o"]
+
+[ext_resource type="Script" path="res://Music_Controller.gd" id="1_5hpi1"]
+[ext_resource type="AudioStream" uid="uid://bsbr6qj6v1qv8" path="res://Assets/Audio/Fish Shooter (MUSIC) GAMEPLAY MUSIC.wav" id="2_6a42w"]
+
+[node name="Music_Controller" type="Node"]
+script = ExtResource("1_5hpi1")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_6a42w")
+volume_db = -15.0
+bus = &"Music"

@@ -16,6 +16,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+MusicController="*res://music_controller.tscn"
 Global="*res://controllers/scripts/scripts/global.gd"
 
 [dotnet]
@@ -91,8 +92,9 @@ next_weapon={
 3d_render/layer_3="player"
 3d_physics/layer_1="world"
 3d_physics/layer_2="player"
-3d_physics/layer_3="weapon"
+3d_physics/layer_3="player_bullet"
 3d_physics/layer_4="enemies"
+3d_physics/layer_5="enemy_bullet"
 
 [rendering]
 

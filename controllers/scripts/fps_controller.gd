@@ -12,7 +12,6 @@ extends CharacterBody3D
 @onready var bullet_scene = preload("res://standard_bullet.tscn")
 @onready var bullet_spawn_point = $CameraController/MainCamera/BulletSpawner
 
-# @export var CROUCH_SHAPECAST : Node3D
 
 var _mouse_input : bool = false
 var _rotation_input : float

@@ -3,13 +3,14 @@ class_name Enemy
 extends CharacterBody3D
 
 @export var CURRENT_HP:int = 5
-@export_range(3.0, 10.0) var ENEMY_SPEED : float = 3.0 # pocasen
+@export_range(0.0, 10.0) var ENEMY_SPEED : float = 3.0 # pocasen
 @export var HOVER_DISTANCE:float = 5
+@export var REDUCING_VELOCITY_FACTOR :  float = 3.0
 signal amIdead 
 
 var direction : Vector3
 var Enemy_hight = range(0.2, )
-var gravity = ProjectSettings.get_setting("physics/3d/default_gravity") 
+var gravity = 15
 # Called when the node enters the scene tree for the first time.
 func ready():
 	pass
@@ -34,6 +35,7 @@ func _physics_process(delta):
 		velocity.z = -direction.z * ENEMY_SPEED
 		
 	update_gravity(delta)
+		
 	var PointToLookAt = Global.player.global_transform.origin
 	#PointToLookAt.z += 1
 	look_at(PointToLookAt, Vector3.UP) 
