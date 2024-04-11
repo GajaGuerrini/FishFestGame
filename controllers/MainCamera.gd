@@ -11,12 +11,12 @@ func Get_Camera_Collision():
 	var Ray_Origin = project_ray_origin(Centre)
 	var Ray_End = Ray_Origin + project_ray_normal(Centre)*Ray_Range
 	var New_Intersection = PhysicsRayQueryParameters3D.create(Ray_Origin, Ray_End)
-	var Intersection = get_world_3d().direct_space_state.intersect_ray(New_Intersection)
+	var _wIntersection = get_world_3d().direct_space_state.intersect_ray(New_Intersection)
 	
-	if not Intersection.is_empty():
-		print(Intersection.collider.name)
-	else:
-		print("Nothing")
+	#if not Intersection.is_empty():
+		#print(Intersection.collider.name)
+	#else:
+		#print("Nothing")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass

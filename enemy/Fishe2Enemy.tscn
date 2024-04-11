@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dmuh1q5shxoa"]
+[gd_scene load_steps=8 format=3 uid="uid://dmuh1q5shxoa"]
 
 [ext_resource type="Script" path="res://enemy/HittingTrueEnemy.gd" id="1_uf4il"]
 [ext_resource type="Script" path="res://enemy/BulletSpawner.gd" id="2_wkkys"]
@@ -13,9 +13,6 @@ height = 6.0
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u270r"]
 radius = 1.2
 height = 6.0
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_sny6t"]
-radius = 5.0
 
 [node name="Fish2EnemyHitting" type="CharacterBody3D"]
 collision_layer = 8
@@ -46,13 +43,6 @@ collision_mask = 4
 transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_u270r")
 
-[node name="DetectionArea" type="Area3D" parent="."]
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionArea"]
-shape = SubResource("SphereShape3D_sny6t")
-
 [node name="AudioEnemyDmg" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("4_xxl4a")
 volume_db = -10.0
@@ -68,5 +58,3 @@ bus = &"SFX"
 
 [connection signal="timeout" from="EnemyBulletSpawner/FireTimer" to="EnemyBulletSpawner" method="_on_fire_timer_timeout"]
 [connection signal="body_entered" from="BulletHitBox" to="." method="_on_bullet_hit_box_body_entered"]
-[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
-[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

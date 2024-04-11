@@ -43,11 +43,14 @@ offset_top = 49.0
 offset_right = 542.0
 offset_bottom = 622.0
 grow_horizontal = 2
-theme_override_colors/font_color = Color(0, 0.392157, 0.784314, 1)
+theme_override_colors/font_color = Color(0, 0.14902, 0.290196, 1)
 theme_override_fonts/font = ExtResource("4_hik2i")
 theme_override_font_sizes/font_size = 40
-text = "The sicilian Fish Mafia has stolen your beloved catfish Pescegatto. You have located the aquarium where they are holding him hostage. 
-Rescue Pescegatto!"
+text = "The sicilian Fish Mafia has stolen your beloved catfish Pescegatto. You have
+located the aquarium where they are holding him hostage.  
+Rescue Pescegatto!
+Look up high!"
+horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 

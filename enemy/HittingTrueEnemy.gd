@@ -50,13 +50,11 @@ func _on_area_3d_body_entered(body):
 	if body.is_in_group("projectile"):
 		body.queue_free()
 		queue_free()
-		print("Hit!")
 
 
 func _on_detection_area_body_entered(body):
 	if body.is_in_group("player"):
 		print("Player has been detected", body.name)
-
 
 
 func _on_detection_area_body_exited(body):
@@ -68,7 +66,6 @@ func _on_bullet_hit_box_body_entered(body):
 	if body.is_in_group("projectile"):
 		CURRENT_HP -= 1
 		body.queue_free()
-		print("bullet hit! remaining HP: ",CURRENT_HP)
 		$AudioEnemyDmg.play()
 		if CURRENT_HP == 0:
 			amIdead.emit()

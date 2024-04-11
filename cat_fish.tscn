@@ -1,0 +1,133 @@
+[gd_scene load_steps=21 format=3 uid="uid://dqclmllqe1rmk"]
+
+[ext_resource type="Script" path="res://cat_fish.gd" id="1_6h2uf"]
+[ext_resource type="Texture2D" uid="uid://72aaunaulego" path="res://Assets/world/materials/carpet/Carpet011_1K-JPG/Carpet011_1K-JPG_Color.jpg" id="1_hxkhg"]
+[ext_resource type="ArrayMesh" uid="uid://bakorb23hdrae" path="res://Assets/Fish/FishV3_out/FishV3Mesh.res" id="1_mgdtk"]
+[ext_resource type="Texture2D" uid="uid://1flr1icwd58d" path="res://Assets/world/materials/plastic/Plastic013A_1K-JPG/Plastic013A_1K-JPG_Color.jpg" id="2_0ayes"]
+[ext_resource type="Texture2D" uid="uid://bf1ai5tbyr80k" path="res://Assets/world/materials/carpet/Carpet011_1K-JPG/Carpet011_1K-JPG_NormalGL.jpg" id="2_f5e2e"]
+[ext_resource type="Texture2D" uid="uid://b3x67pas7qcse" path="res://Assets/world/materials/carpet/Carpet011_1K-JPG/Carpet011_1K-JPG_Roughness.jpg" id="3_5rvfw"]
+[ext_resource type="Texture2D" uid="uid://drrxj4sqx4qc8" path="res://Assets/world/materials/plastic/Plastic013A_1K-JPG/Plastic013A_1K-JPG_Roughness.jpg" id="3_ck0qy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xtjol"]
+albedo_color = Color(1, 0.625001, 0.365739, 1)
+albedo_texture = ExtResource("1_hxkhg")
+roughness_texture = ExtResource("3_5rvfw")
+normal_enabled = true
+normal_texture = ExtResource("2_f5e2e")
+
+[sub_resource type="PrismMesh" id="PrismMesh_r3jbq"]
+left_to_right = 0.7
+size = Vector3(0.05, 0.05, 0.05)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m3w60"]
+albedo_color = Color(1, 0.623529, 0.364706, 1)
+albedo_texture = ExtResource("1_hxkhg")
+roughness_texture = ExtResource("3_5rvfw")
+normal_enabled = true
+normal_texture = ExtResource("2_f5e2e")
+
+[sub_resource type="SphereMesh" id="SphereMesh_7nll7"]
+radius = 0.1
+height = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x0t1j"]
+albedo_color = Color(1, 0.625001, 0.365739, 1)
+albedo_texture = ExtResource("1_hxkhg")
+roughness_texture = ExtResource("3_5rvfw")
+normal_enabled = true
+normal_texture = ExtResource("2_f5e2e")
+
+[sub_resource type="PrismMesh" id="PrismMesh_dup53"]
+left_to_right = 0.3
+size = Vector3(0.05, 0.05, 0.05)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yuoue"]
+albedo_color = Color(0, 0, 0, 1)
+albedo_texture = ExtResource("2_0ayes")
+roughness_texture = ExtResource("3_ck0qy")
+
+[sub_resource type="SphereMesh" id="SphereMesh_dbp6w"]
+radius = 0.005
+height = 0.01
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eulmn"]
+albedo_color = Color(0, 0, 0, 1)
+albedo_texture = ExtResource("2_0ayes")
+roughness_texture = ExtResource("3_ck0qy")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6nbph"]
+albedo_color = Color(1, 0.54902, 0.647059, 1)
+albedo_texture = ExtResource("2_0ayes")
+roughness_texture = ExtResource("3_ck0qy")
+
+[sub_resource type="PrismMesh" id="PrismMesh_7cp4u"]
+size = Vector3(0.01, 0.01, 0.01)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hx2cf"]
+radius = 0.25
+height = 1.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_w1o67"]
+radius = 1.0
+
+[node name="CatFish" type="StaticBody3D"]
+collision_layer = 0
+script = ExtResource("1_6h2uf")
+
+[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.321995, 0.0943304, 0.0329801)
+
+[node name="desnouhce" type="MeshInstance3D" parent="MultiMeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0659801, -0.000330359, 5.21541e-06)
+material_override = SubResource("StandardMaterial3D_xtjol")
+mesh = SubResource("PrismMesh_r3jbq")
+skeleton = NodePath("../..")
+
+[node name="trup" type="MeshInstance3D" parent="MultiMeshInstance3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0329801, -0.0943304, -0.321995)
+mesh = ExtResource("1_mgdtk")
+skeleton = NodePath("../Glava")
+
+[node name="Glava" type="MeshInstance3D" parent="MultiMeshInstance3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0329801, -0.0943304, -0.0162243)
+material_override = SubResource("StandardMaterial3D_m3w60")
+mesh = SubResource("SphereMesh_7nll7")
+skeleton = NodePath("../..")
+
+[node name="levouhce" type="MeshInstance3D" parent="MultiMeshInstance3D"]
+material_override = SubResource("StandardMaterial3D_x0t1j")
+mesh = SubResource("PrismMesh_dup53")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MultiMeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0110542, -0.0601901, 0.0766132)
+material_override = SubResource("StandardMaterial3D_yuoue")
+mesh = SubResource("SphereMesh_dbp6w")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="MultiMeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0750138, -0.0618926, 0.069757)
+material_override = SubResource("StandardMaterial3D_eulmn")
+mesh = SubResource("SphereMesh_dbp6w")
+skeleton = NodePath("../..")
+
+[node name="nosek" type="MeshInstance3D" parent="MultiMeshInstance3D"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0.0329801, -0.0943304, 0.0832848)
+material_override = SubResource("StandardMaterial3D_6nbph")
+mesh = SubResource("PrismMesh_7cp4u")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_hx2cf")
+disabled = true
+
+[node name="detect_player" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="detect_player"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("SphereShape3D_w1o67")
+
+[connection signal="body_entered" from="detect_player" to="." method="_on_detect_player_body_entered"]

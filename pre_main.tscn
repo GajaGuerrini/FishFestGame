@@ -54,7 +54,7 @@ grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0.14902, 0.301961, 1)
 theme_override_fonts/font = ExtResource("3_yir07")
 theme_override_font_sizes/font_size = 40
-text = "A game made during"
+text = "A game made for"
 
 [node name="fishfest" type="TextureRect" parent="."]
 layout_mode = 1

@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="WeaponRes" load_steps=2 format=3 uid="uid://d3le1lv4y5lgt"]
-
-[ext_resource type="Script" path="res://controllers/wapons/WeaponRes.gd" id="1_rq8ft"]
-
-[resource]
-script = ExtResource("1_rq8ft")
-WEAPON_NAME = "DefaultSpitting"
-CURENT_AMMO = 100
-RESERVE_AMMO = 100
