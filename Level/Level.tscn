@@ -1,34 +1,34 @@
 [gd_scene load_steps=46 format=3 uid="uid://cmwtq1bi1tjkf"]
 
-[ext_resource type="Texture2D" uid="uid://bgeghwcibx81w" path="res://Assets/world/materials/sand/Ground055S_1K-JPG_Color.jpg" id="1_h637h"]
-[ext_resource type="Texture2D" uid="uid://pjhkspb4u1nb" path="res://Assets/world/materials/sand/Ground055S_1K-JPG_Roughness.jpg" id="2_dqgwt"]
-[ext_resource type="Texture2D" uid="uid://dkx5nq4h2wr6j" path="res://Assets/world/materials/sand/Ground055S_1K-JPG_NormalGL.jpg" id="3_wl6tw"]
-[ext_resource type="Shader" path="res://glass_looking.gdshader" id="4_iv8qr"]
-[ext_resource type="PackedScene" uid="uid://cydxejijcnvuu" path="res://controllers/fps_controller.tscn" id="5_24qtm"]
-[ext_resource type="PackedScene" uid="uid://dswiyvwlcf6f2" path="res://world.tscn" id="6_ukemo"]
-[ext_resource type="Texture2D" uid="uid://cf8exoddtr84n" path="res://Assets/world/materials/moss/Moss002_2K-PNG_Color.png" id="7_wgoip"]
-[ext_resource type="Texture2D" uid="uid://dxw6vf0girdy4" path="res://Assets/world/materials/moss/Moss002_2K-PNG_AmbientOcclusion.png" id="8_opta8"]
-[ext_resource type="Texture2D" uid="uid://oahucmb7dijh" path="res://Assets/world/materials/moss/Moss002_2K-PNG_Roughness.png" id="9_hikg4"]
-[ext_resource type="Texture2D" uid="uid://1flr1icwd58d" path="res://Assets/world/materials/plastic/Plastic013A_1K-JPG/Plastic013A_1K-JPG_Color.jpg" id="10_f55y3"]
-[ext_resource type="Texture2D" uid="uid://drrxj4sqx4qc8" path="res://Assets/world/materials/plastic/Plastic013A_1K-JPG/Plastic013A_1K-JPG_Roughness.jpg" id="11_3cujr"]
-[ext_resource type="Texture2D" uid="uid://dauufkx65rdam" path="res://Assets/world/materials/wood/Bark014_1K-JPG/Bark014_1K-JPG_Color.jpg" id="12_p0qr6"]
-[ext_resource type="Texture2D" uid="uid://c8kk0o7kfn7gg" path="res://Assets/world/materials/wood/Bark014_1K-JPG/Bark014_1K-JPG_Roughness.jpg" id="13_hrcp8"]
-[ext_resource type="PackedScene" uid="uid://b7sgruhd352f2" path="res://enemy/Fishe3Enemy.tscn" id="14_pm4y1"]
-[ext_resource type="PackedScene" uid="uid://djb8ff8jklfnf" path="res://enemy/SharkEnemy.tscn" id="15_vlfue"]
-[ext_resource type="PackedScene" uid="uid://dmuh1q5shxoa" path="res://enemy/Fishe2Enemy.tscn" id="16_rikqe"]
-[ext_resource type="PackedScene" uid="uid://uhnaix2n4rk2" path="res://enemy/Fishe4Enemy.tscn" id="17_dgdjx"]
-[ext_resource type="PackedScene" uid="uid://i7ngu88cfemv" path="res://enemy/FisheEnemy.tscn" id="18_8w5ks"]
-[ext_resource type="PackedScene" uid="uid://dwpuljl8u7vpe" path="res://enemy/FisheEnemyStatic.tscn" id="19_efwch"]
-[ext_resource type="PackedScene" uid="uid://dqclmllqe1rmk" path="res://cat_fish.tscn" id="20_qf7wr"]
+[ext_resource type="Texture2D" uid="uid://bgeghwcibx81w" path="res://Assets/world/materials/sand/Ground055S_1K-JPG_Color.jpg" id="1_elkby"]
+[ext_resource type="Texture2D" uid="uid://pjhkspb4u1nb" path="res://Assets/world/materials/sand/Ground055S_1K-JPG_Roughness.jpg" id="2_ier5i"]
+[ext_resource type="Texture2D" uid="uid://dkx5nq4h2wr6j" path="res://Assets/world/materials/sand/Ground055S_1K-JPG_NormalGL.jpg" id="3_avto6"]
+[ext_resource type="Shader" path="res://Level/glass_looking.gdshader" id="4_nqbit"]
+[ext_resource type="PackedScene" uid="uid://cydxejijcnvuu" path="res://controllers/fps_controller.tscn" id="5_7w2mc"]
+[ext_resource type="PackedScene" uid="uid://dswiyvwlcf6f2" path="res://world.tscn" id="6_mkrmr"]
+[ext_resource type="Texture2D" uid="uid://cf8exoddtr84n" path="res://Assets/world/materials/moss/Moss002_2K-PNG_Color.png" id="7_1id02"]
+[ext_resource type="Texture2D" uid="uid://dxw6vf0girdy4" path="res://Assets/world/materials/moss/Moss002_2K-PNG_AmbientOcclusion.png" id="8_fd0fd"]
+[ext_resource type="Texture2D" uid="uid://oahucmb7dijh" path="res://Assets/world/materials/moss/Moss002_2K-PNG_Roughness.png" id="9_scwwd"]
+[ext_resource type="Texture2D" uid="uid://1flr1icwd58d" path="res://Assets/world/materials/plastic/Plastic013A_1K-JPG/Plastic013A_1K-JPG_Color.jpg" id="10_e0vai"]
+[ext_resource type="Texture2D" uid="uid://drrxj4sqx4qc8" path="res://Assets/world/materials/plastic/Plastic013A_1K-JPG/Plastic013A_1K-JPG_Roughness.jpg" id="11_2vhaa"]
+[ext_resource type="Texture2D" uid="uid://dauufkx65rdam" path="res://Assets/world/materials/wood/Bark014_1K-JPG/Bark014_1K-JPG_Color.jpg" id="12_wt8v5"]
+[ext_resource type="Texture2D" uid="uid://c8kk0o7kfn7gg" path="res://Assets/world/materials/wood/Bark014_1K-JPG/Bark014_1K-JPG_Roughness.jpg" id="13_wkftr"]
+[ext_resource type="PackedScene" uid="uid://b7sgruhd352f2" path="res://enemy/Fishe3Enemy.tscn" id="14_dvoki"]
+[ext_resource type="PackedScene" uid="uid://djb8ff8jklfnf" path="res://enemy/SharkEnemy.tscn" id="15_1v0tt"]
+[ext_resource type="PackedScene" uid="uid://dmuh1q5shxoa" path="res://enemy/Fishe2Enemy.tscn" id="16_vn8hb"]
+[ext_resource type="PackedScene" uid="uid://uhnaix2n4rk2" path="res://enemy/Fishe4Enemy.tscn" id="17_oo54m"]
+[ext_resource type="PackedScene" uid="uid://i7ngu88cfemv" path="res://enemy/FisheEnemy.tscn" id="18_qt5ij"]
+[ext_resource type="PackedScene" uid="uid://dwpuljl8u7vpe" path="res://enemy/FisheEnemyStatic.tscn" id="19_a0pag"]
+[ext_resource type="PackedScene" uid="uid://dqclmllqe1rmk" path="res://Level/cat_fish.tscn" id="20_afo7i"]
 
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_4di83"]
-albedo_texture = ExtResource("1_h637h")
+albedo_texture = ExtResource("1_elkby")
 normal_enabled = true
-normal_texture = ExtResource("3_wl6tw")
+normal_texture = ExtResource("3_avto6")
 clearcoat_enabled = true
 clearcoat = 0.0
 clearcoat_roughness = 1.0
-clearcoat_texture = ExtResource("2_dqgwt")
+clearcoat_texture = ExtResource("2_ier5i")
 refraction_enabled = true
 uv1_scale = Vector3(10, 10, 1)
 
@@ -40,61 +40,61 @@ albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a83pq"]
 render_priority = 0
-shader = ExtResource("4_iv8qr")
+shader = ExtResource("4_nqbit")
 shader_parameter/Color = Color(1, 1, 1, 0.498039)
 shader_parameter/Shine = 0.2
 shader_parameter/Roughness = 0.2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t3sbi"]
 albedo_color = Color(1, 0.0823529, 0.113725, 1)
-albedo_texture = ExtResource("7_wgoip")
-roughness_texture = ExtResource("9_hikg4")
-ao_texture = ExtResource("8_opta8")
+albedo_texture = ExtResource("7_1id02")
+roughness_texture = ExtResource("9_scwwd")
+ao_texture = ExtResource("8_fd0fd")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0uhgb"]
 albedo_color = Color(1, 0.0823529, 0.113725, 1)
-albedo_texture = ExtResource("7_wgoip")
-roughness_texture = ExtResource("9_hikg4")
+albedo_texture = ExtResource("7_1id02")
+roughness_texture = ExtResource("9_scwwd")
 normal_enabled = true
 ao_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d6jby"]
 albedo_color = Color(1, 0.0823529, 0.113725, 1)
-albedo_texture = ExtResource("7_wgoip")
-roughness_texture = ExtResource("9_hikg4")
+albedo_texture = ExtResource("7_1id02")
+roughness_texture = ExtResource("9_scwwd")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kaqbd"]
 albedo_color = Color(1, 0.0823529, 0.113725, 1)
-albedo_texture = ExtResource("7_wgoip")
-roughness_texture = ExtResource("9_hikg4")
+albedo_texture = ExtResource("7_1id02")
+roughness_texture = ExtResource("9_scwwd")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_88s5n"]
 albedo_color = Color(1, 0.0823529, 0.113725, 1)
-albedo_texture = ExtResource("7_wgoip")
-roughness_texture = ExtResource("9_hikg4")
+albedo_texture = ExtResource("7_1id02")
+roughness_texture = ExtResource("9_scwwd")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xslkk"]
 albedo_color = Color(1, 0.0823529, 0.113725, 1)
-albedo_texture = ExtResource("7_wgoip")
-roughness_texture = ExtResource("9_hikg4")
+albedo_texture = ExtResource("7_1id02")
+roughness_texture = ExtResource("9_scwwd")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ytlxq"]
 albedo_color = Color(1, 0.0823529, 0.113725, 1)
-albedo_texture = ExtResource("7_wgoip")
-roughness_texture = ExtResource("9_hikg4")
+albedo_texture = ExtResource("7_1id02")
+roughness_texture = ExtResource("9_scwwd")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5b3vb"]
 albedo_color = Color(0.133333, 0.545098, 0.133333, 1)
-albedo_texture = ExtResource("10_f55y3")
-roughness_texture = ExtResource("11_3cujr")
+albedo_texture = ExtResource("10_e0vai")
+roughness_texture = ExtResource("11_2vhaa")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8hiu7"]
 albedo_color = Color(0.133333, 0.545098, 0.133333, 1)
-albedo_texture = ExtResource("10_f55y3")
+albedo_texture = ExtResource("10_e0vai")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v1yy3"]
 albedo_color = Color(0.133333, 0.545098, 0.133333, 1)
-albedo_texture = ExtResource("10_f55y3")
+albedo_texture = ExtResource("10_e0vai")
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_jha4m"]
 top_radius = 0.4
@@ -102,51 +102,51 @@ bottom_radius = 0.4
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7n8eo"]
 albedo_color = Color(0.133333, 0.545098, 0.133333, 1)
-albedo_texture = ExtResource("10_f55y3")
-roughness_texture = ExtResource("11_3cujr")
+albedo_texture = ExtResource("10_e0vai")
+roughness_texture = ExtResource("11_2vhaa")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uia7b"]
 albedo_color = Color(0.133333, 0.545098, 0.133333, 1)
-roughness_texture = ExtResource("11_3cujr")
+roughness_texture = ExtResource("11_2vhaa")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_orteu"]
 albedo_color = Color(0.133333, 0.545098, 0.133333, 1)
-albedo_texture = ExtResource("10_f55y3")
-roughness_texture = ExtResource("11_3cujr")
+albedo_texture = ExtResource("10_e0vai")
+roughness_texture = ExtResource("11_2vhaa")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u47js"]
 albedo_color = Color(0.133333, 0.545098, 0.133333, 1)
-albedo_texture = ExtResource("10_f55y3")
-roughness_texture = ExtResource("11_3cujr")
+albedo_texture = ExtResource("10_e0vai")
+roughness_texture = ExtResource("11_2vhaa")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_as40w"]
 albedo_color = Color(0.133333, 0.545098, 0.133333, 1)
-albedo_texture = ExtResource("10_f55y3")
-roughness_texture = ExtResource("11_3cujr")
+albedo_texture = ExtResource("10_e0vai")
+roughness_texture = ExtResource("11_2vhaa")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tfeg0"]
 albedo_color = Color(0.133333, 0.545098, 0.133333, 1)
-albedo_texture = ExtResource("10_f55y3")
-roughness_texture = ExtResource("11_3cujr")
+albedo_texture = ExtResource("10_e0vai")
+roughness_texture = ExtResource("11_2vhaa")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oush0"]
 albedo_color = Color(0.133333, 0.545098, 0.133333, 1)
-albedo_texture = ExtResource("10_f55y3")
-roughness_texture = ExtResource("11_3cujr")
+albedo_texture = ExtResource("10_e0vai")
+roughness_texture = ExtResource("11_2vhaa")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_va3tx"]
 albedo_color = Color(0.133333, 0.545098, 0.133333, 1)
-albedo_texture = ExtResource("10_f55y3")
-roughness_texture = ExtResource("11_3cujr")
+albedo_texture = ExtResource("10_e0vai")
+roughness_texture = ExtResource("11_2vhaa")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n4m1k"]
 albedo_color = Color(0.133333, 0.545098, 0.133333, 1)
-albedo_texture = ExtResource("10_f55y3")
-roughness_texture = ExtResource("11_3cujr")
+albedo_texture = ExtResource("10_e0vai")
+roughness_texture = ExtResource("11_2vhaa")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qy0qu"]
-albedo_texture = ExtResource("12_p0qr6")
-roughness_texture = ExtResource("13_hrcp8")
+albedo_texture = ExtResource("12_wt8v5")
+roughness_texture = ExtResource("13_wkftr")
 rim_tint = 0.71
 anisotropy_enabled = true
 anisotropy = 0.01
@@ -187,10 +187,10 @@ size = Vector3(70, 50, 50)
 operation = 2
 size = Vector3(65, 50, 45)
 
-[node name="FPS_Controller" parent="." instance=ExtResource("5_24qtm")]
+[node name="FPS_Controller" parent="." instance=ExtResource("5_7w2mc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.5159, 0.860165, 12.7096)
 
-[node name="WorldEnvironment" parent="." instance=ExtResource("6_ukemo")]
+[node name="WorldEnvironment" parent="." instance=ExtResource("6_mkrmr")]
 
 [node name="Coral" type="Node3D" parent="."]
 transform = Transform3D(1.5, 0, 0, 0, 6.95054, -0.56356, 0, 2.8178, 1.39011, 3.78514, 0.783068, 13.7085)
@@ -620,35 +620,35 @@ height = 43.2
 sides = 64
 cone = true
 
-[node name="Fish3EnemyHitting" parent="." instance=ExtResource("14_pm4y1")]
+[node name="Fish3EnemyHitting" parent="." instance=ExtResource("14_dvoki")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.9222, 5.38965, 0.524033)
 
-[node name="SharkEnemyHitting" parent="." instance=ExtResource("15_vlfue")]
+[node name="SharkEnemyHitting" parent="." instance=ExtResource("15_1v0tt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.1981, 5.77742, 9.65362)
 
-[node name="Fish2EnemyHitting" parent="." instance=ExtResource("16_rikqe")]
+[node name="Fish2EnemyHitting" parent="." instance=ExtResource("16_vn8hb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.09758, 5.11098, 13.0438)
 
-[node name="Fish4EnemyHitting" parent="." instance=ExtResource("17_dgdjx")]
+[node name="Fish4EnemyHitting" parent="." instance=ExtResource("17_oo54m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0331, 1.63383, -16.0477)
 
-[node name="Fish1EnemyHitting" parent="." instance=ExtResource("18_8w5ks")]
+[node name="Fish1EnemyHitting" parent="." instance=ExtResource("18_qt5ij")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.83883, 5.72932, 4.8916)
 
-[node name="Fish1EnemyHitting2" parent="." instance=ExtResource("18_8w5ks")]
+[node name="Fish1EnemyHitting2" parent="." instance=ExtResource("18_qt5ij")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.17536, 12.9511, -1.54841)
 
-[node name="Fish1EnemyHitting3" parent="." instance=ExtResource("18_8w5ks")]
+[node name="Fish1EnemyHitting3" parent="." instance=ExtResource("18_qt5ij")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.27581, 17.2455, -13.2038)
 
-[node name="Fish1EnemyHitting4" parent="." instance=ExtResource("18_8w5ks")]
+[node name="Fish1EnemyHitting4" parent="." instance=ExtResource("18_qt5ij")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.52509, 17.9727, -17.6954)
 
-[node name="StaticFish1EnemyHitting" parent="." instance=ExtResource("19_efwch")]
+[node name="StaticFish1EnemyHitting" parent="." instance=ExtResource("19_a0pag")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.2643, 11.8168, -9.51843)
 
-[node name="StaticFish1EnemyHitting2" parent="." instance=ExtResource("19_efwch")]
+[node name="StaticFish1EnemyHitting2" parent="." instance=ExtResource("19_a0pag")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.57668, 9.44788, -2.04792)
 
-[node name="CatFish" parent="." instance=ExtResource("20_qf7wr")]
+[node name="CatFish" parent="." instance=ExtResource("20_afo7i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.2196, 22.1961, 0.593399)

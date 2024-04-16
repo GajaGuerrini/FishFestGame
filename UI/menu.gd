@@ -12,11 +12,11 @@ func _process(_delta):
 
 
 func _on_start_button_pressed():
-	get_tree().change_scene_to_file("res://Story.tscn")
+	get_tree().change_scene_to_file("res://UI/Story.tscn")
 
 
 func _on_options_button_pressed():
-	get_tree().change_scene_to_file("res://music_volume_setting.tscn")
+	get_tree().change_scene_to_file("res://UI/music_volume_setting.tscn")
 
 
 func _on_quit_button_pressed():
@@ -24,8 +24,8 @@ func _on_quit_button_pressed():
 
 
 func _on_credits_pressed():
-	get_tree().change_scene_to_file("res://Credits.tscn")
+	get_tree().change_scene_to_file("res://UI/Credits.tscn")
 
 
 func _on_controls_pressed():
-	get_tree().change_scene_to_file("res://controls.tscn")
+	get_tree().change_scene_to_file("res://UI/controls.tscn")

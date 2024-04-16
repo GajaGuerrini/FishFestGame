@@ -9,4 +9,4 @@ func _ready():
 func _on_detect_player_body_entered(body):
 	print("Ciao")
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	get_tree().change_scene_to_file("res://Uwin.tscn")
+	get_tree().change_scene_to_file("res://UI/Uwin.tscn")

@@ -12,4 +12,4 @@ func _process(_delta):
 
 
 func _on_start_pressed():
-	get_tree().change_scene_to_file("res://menu.tscn")
+	get_tree().change_scene_to_file("res://UI/menu.tscn")

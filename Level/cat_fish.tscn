@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://dqclmllqe1rmk"]
 
-[ext_resource type="Script" path="res://cat_fish.gd" id="1_6h2uf"]
+[ext_resource type="Script" path="res://Level/cat_fish.gd" id="1_6h2uf"]
 [ext_resource type="Texture2D" uid="uid://72aaunaulego" path="res://Assets/world/materials/carpet/Carpet011_1K-JPG/Carpet011_1K-JPG_Color.jpg" id="1_hxkhg"]
 [ext_resource type="ArrayMesh" uid="uid://bakorb23hdrae" path="res://Assets/Fish/FishV3_out/FishV3Mesh.res" id="1_mgdtk"]
 [ext_resource type="Texture2D" uid="uid://1flr1icwd58d" path="res://Assets/world/materials/plastic/Plastic013A_1K-JPG/Plastic013A_1K-JPG_Color.jpg" id="2_0ayes"]

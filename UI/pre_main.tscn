@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bopk3kjbwk30a"]
 
-[ext_resource type="Script" path="res://pre_main.gd" id="1_lsh1t"]
+[ext_resource type="Script" path="res://UI/pre_main.gd" id="1_lsh1t"]
 [ext_resource type="Texture2D" uid="uid://c6nm7ybxxoxgl" path="res://Assets/Fish/fishbg.png" id="2_0yfae"]
 [ext_resource type="FontFile" uid="uid://dvvco1065bgll" path="res://Assets/Font/CorleoneDue-Wp8v.ttf" id="3_yir07"]
 [ext_resource type="Texture2D" uid="uid://dqho1vvvh7buq" path="res://Assets/Fish/smallfish.png" id="4_6k5vl"]

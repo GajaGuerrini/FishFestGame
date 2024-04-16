@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c0jwphu6ue3gn"]
 
-[ext_resource type="Script" path="res://Credits.gd" id="1_lr8v1"]
+[ext_resource type="Script" path="res://UI/Credits.gd" id="1_lr8v1"]
 [ext_resource type="Texture2D" uid="uid://c6nm7ybxxoxgl" path="res://Assets/Fish/fishbg.png" id="1_oq3uh"]
 [ext_resource type="FontFile" uid="uid://dvvco1065bgll" path="res://Assets/Font/CorleoneDue-Wp8v.ttf" id="2_tmcxd"]
 

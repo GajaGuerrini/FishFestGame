@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://d14nhsv81l1vl"]
 
-[ext_resource type="Script" path="res://music_volume_setting.gd" id="1_a26pn"]
+[ext_resource type="Script" path="res://UI/music_volume_setting.gd" id="1_a26pn"]
 [ext_resource type="Texture2D" uid="uid://c6nm7ybxxoxgl" path="res://Assets/Fish/fishbg.png" id="1_m06lh"]
 [ext_resource type="FontFile" uid="uid://dvvco1065bgll" path="res://Assets/Font/CorleoneDue-Wp8v.ttf" id="2_4e1n1"]
-[ext_resource type="PackedScene" uid="uid://cxf7qp6nxe16e" path="res://volume_slider.tscn" id="3_cfj7e"]
+[ext_resource type="PackedScene" uid="uid://cxf7qp6nxe16e" path="res://UI/volume_slider.tscn" id="3_cfj7e"]
 
 [node name="Music_Volume_setting" type="Control"]
 layout_mode = 3

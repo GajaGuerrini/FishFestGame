@@ -11,13 +11,17 @@ config_version=5
 [application]
 
 config/name="Fish Person Shuter"
-run/main_scene="res://pre_main.tscn"
+run/main_scene="res://UI/pre_main.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="res://UI/default_bus_layout.tres"
+
 [autoload]
 
-MusicController="*res://music_controller.tscn"
+MusicController="*res://UI/music_controller.tscn"
 Global="*res://controllers/scripts/scripts/global.gd"
 
 [display]

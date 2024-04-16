@@ -12,8 +12,8 @@ func _process(delta):
 
 
 func _on_button_pressed():
-	get_tree().change_scene_to_file("res://menu.tscn")
+	get_tree().change_scene_to_file("res://UI/menu.tscn")
 
 
 func _on_restart_pressed():
-	get_tree().change_scene_to_file("res://Level.tscn")
+	get_tree().change_scene_to_file("res://Level/Level.tscn")

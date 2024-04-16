@@ -1,8 +1,20 @@
 [gd_scene load_steps=4 format=3 uid="uid://l0iw88mvhtf1"]
 
-[ext_resource type="Texture2D" uid="uid://c6nm7ybxxoxgl" path="res://Assets/Fish/fishbg.png" id="1_js8yj"]
-[ext_resource type="Script" path="res://controls.gd" id="1_s6cp4"]
-[ext_resource type="FontFile" uid="uid://dvvco1065bgll" path="res://Assets/Font/CorleoneDue-Wp8v.ttf" id="2_0q1om"]
+[ext_resource type="Texture2D" uid="uid://c6nm7ybxxoxgl" path="res://Assets/Fish/fishbg.png" id="1_5stqf"]
+[ext_resource type="FontFile" uid="uid://dvvco1065bgll" path="res://Assets/Font/CorleoneDue-Wp8v.ttf" id="2_u4j8n"]
+
+[sub_resource type="GDScript" id="GDScript_ayb8o"]
+script/source = "extends Control
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+func _on_back_to_main_pressed():
+	get_tree().change_scene_to_file(\"res://menu.tscn\")
+"
 
 [node name="controls" type="Control"]
 layout_mode = 3
@@ -11,7 +23,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_s6cp4")
+script = SubResource("GDScript_ayb8o")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
@@ -20,7 +32,7 @@ offset_top = -181.0
 offset_right = 2422.0
 offset_bottom = 1979.0
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_js8yj")
+texture = ExtResource("1_5stqf")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -39,42 +51,42 @@ grow_vertical = 2
 [node name="Movements" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.14902, 0.301961, 1)
-theme_override_fonts/font = ExtResource("2_0q1om")
+theme_override_fonts/font = ExtResource("2_u4j8n")
 theme_override_font_sizes/font_size = 30
 text = "Move using W A S D"
 
 [node name="Camera" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.14902, 0.301961, 1)
-theme_override_fonts/font = ExtResource("2_0q1om")
+theme_override_fonts/font = ExtResource("2_u4j8n")
 theme_override_font_sizes/font_size = 30
 text = "Look with MOUSE"
 
 [node name="Shoot" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.14902, 0.301961, 1)
-theme_override_fonts/font = ExtResource("2_0q1om")
+theme_override_fonts/font = ExtResource("2_u4j8n")
 theme_override_font_sizes/font_size = 30
 text = "Fire with LEFT CLICK"
 
 [node name="Jump" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.14902, 0.301961, 1)
-theme_override_fonts/font = ExtResource("2_0q1om")
+theme_override_fonts/font = ExtResource("2_u4j8n")
 theme_override_font_sizes/font_size = 30
 text = "Jump using SPACE"
 
 [node name="Sprint" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.14902, 0.301961, 1)
-theme_override_fonts/font = ExtResource("2_0q1om")
+theme_override_fonts/font = ExtResource("2_u4j8n")
 theme_override_font_sizes/font_size = 30
 text = "Sprint by holding SHIFT + W A S D keys"
 
 [node name="quit" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.14902, 0.301961, 1)
-theme_override_fonts/font = ExtResource("2_0q1om")
+theme_override_fonts/font = ExtResource("2_u4j8n")
 theme_override_font_sizes/font_size = 30
 text = "Quit with ESC"
 
@@ -84,7 +96,7 @@ offset_left = 722.0
 offset_top = 490.0
 offset_right = 849.0
 offset_bottom = 524.0
-theme_override_fonts/font = ExtResource("2_0q1om")
+theme_override_fonts/font = ExtResource("2_u4j8n")
 theme_override_font_sizes/font_size = 40
 text = "Back to main menu"
 

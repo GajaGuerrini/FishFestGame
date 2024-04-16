@@ -105,7 +105,7 @@ func _on_area_detecting_hits_body_entered(body):
 		set_health_label()
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		await $AreaDetectingHits/AudioPlayerDeath.finished
-		get_tree().change_scene_to_file("res://game_over.tscn")
+		get_tree().change_scene_to_file("res://UI/game_over.tscn")
 		
 		
 
